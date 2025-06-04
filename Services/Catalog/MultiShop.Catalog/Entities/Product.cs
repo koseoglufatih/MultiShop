@@ -1,5 +1,5 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace MultiShop.Catalog.Entities
 {
@@ -13,7 +13,7 @@ namespace MultiShop.Catalog.Entities
         public string ProductImageUrl { get; set; }
         public string ProductDescription { get; set; }
 
-    
+
         public string CategoryID { get; set; }
 
         [BsonIgnore]
