@@ -17,34 +17,37 @@ namespace MultiShop.Discount.Controllers
             _discountService = discountService;
         }
         [HttpGet]
-        public async Task<IActionResult> CouponList()
+        public async Task<IActionResult> DiscountCouponList()
         {
-            var values = _discountService.GetAllCouponsAsync();
+            var values = _discountService.GetAllDiscountCouponsAsync();
             return Ok(values);
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCouponById(int id)
+
+        public async Task<IActionResult> GetDiscountCouponById(int id)
         {
-            var values = _discountService.GetByIdCouponAsync(id);
+            var values = _discountService.GetByIdDiscountCouponAsync(id);
             return Ok(values);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateCoupon(CreateCouponDto createCouponDto)
+
+        public async Task<IActionResult> CreateDiscountCoupon(CreateDiscountCouponDto createCouponDto)
         {
-            await _discountService.CreateCouponAsync(createCouponDto);
+            await _discountService.CreateDiscountCouponAsync(createCouponDto);
             return Ok("Kupon başarıyla oluşturuldu");
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteCoupon(int id)
+
+        public async Task<IActionResult> DeleteDiscountCoupon(int id)
         {
-            await _discountService.DeleteCouponAsync(id);
+            await _discountService.DeleteDiscountCouponAsync(id);
             return Ok("Kupon başarıyla silindi");
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateCoupon(UpdateCouponDto updateCouponDto)
+        public async Task<IActionResult> UpdateDiscountCoupon(UpdateDiscountCouponDto updateCouponDto)
         {
-            await _discountService.UpdateCouponAsync(updateCouponDto);
+            await _discountService.UpdateDiscountCouponAsync(updateCouponDto);
             return Ok("İndirim kuponu başarıyla güncellendi");
         }
     }
