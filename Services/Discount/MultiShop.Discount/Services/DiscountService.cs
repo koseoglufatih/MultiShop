@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using MultiShop.Discount.Context;
 using MultiShop.Discount.Dtos;
+using System.Net.Http.Headers;
 
 namespace MultiShop.Discount.Services
 {
@@ -62,9 +63,18 @@ namespace MultiShop.Discount.Services
             }
         }
 
-        public Task UpdateCouponAsync(UpdateCouponDto updateCouponDto)
+        public async Task UpdateCouponAsync(UpdateCouponDto updateCouponDto)
         {
-            throw new NotImplementedException();
+            string query = "Update Coupons Set Code=@code,Rate=@rate,IsActive=@isActive,ValidDate=@validDate where CouponId=@couponId";
+            var parameters = new DynamicParameters();
+            parameters.Add("@code", updateCouponDto.Code);
+            parameters.Add("@rate", updateCouponDto.Rate);
+            parameters.Add("@isActive", updateCouponDto.IsActive);
+            parameters.Add("@validDate", updateCouponDto.ValidDate);
+            using (var connection = _dapperContext.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
     }
 }
