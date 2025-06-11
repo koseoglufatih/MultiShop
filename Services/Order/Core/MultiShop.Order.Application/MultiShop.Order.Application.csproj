@@ -41,11 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\CQRS\Queries\AddressQueries\GetAddressByIdQuery.cs" />
+    <Compile Include="Features\CQRS\Results\AddressResults\GetAddressByIdQueryResult.cs" />
+    <Compile Include="Features\CQRS\Results\AddressResults\GetAddressQueryResult.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\CQRS\" />
+    <Folder Include="Features\CQRS\Commands\AddressCommands\" />
+    <Folder Include="Features\CQRS\Handlers\AddressHandlers\" />
     <Folder Include="Features\Mediator\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
