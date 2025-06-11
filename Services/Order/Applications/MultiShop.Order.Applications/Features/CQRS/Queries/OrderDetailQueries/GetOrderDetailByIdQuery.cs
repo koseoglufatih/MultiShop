@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Order.Applications.Features.CQRS.Queries.OrderDetailQueries
 {
-    public class GetOrderDetailQuery
+    public class GetOrderDetailByIdQuery
     {
         public int Id { get; set; }
 
-        public GetOrderDetailQuery(int id)
+        public GetOrderDetailByIdQuery(int id)
         {
             Id = id;
         }

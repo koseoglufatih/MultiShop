@@ -1,4 +1,7 @@
-﻿using MultiShop.Order.Domain.Entities;
+﻿using MultiShop.Order.Applications.Features.CQRS.Queries.AddressQueries;
+using MultiShop.Order.Applications.Features.CQRS.Results.AddressResults;
+using MultiShop.Order.Applications.Interfaces;
+using MultiShop.Order.Domain.Entities;
 
 namespace MultiShop.Order.Applications.Features.CQRS.Handlers.AddressHandlers
 {
@@ -18,7 +21,7 @@ namespace MultiShop.Order.Applications.Features.CQRS.Handlers.AddressHandlers
             {
                 AddressId = values.AddressId,
                 City = values.City,
-                Details = values.Details,
+                Detail = values.Detail,
                 District = values.District,
                 UserId = values.UserId
             };
