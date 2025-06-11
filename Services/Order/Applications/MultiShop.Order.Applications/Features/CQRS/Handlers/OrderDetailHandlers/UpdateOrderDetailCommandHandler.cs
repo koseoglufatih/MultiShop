@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Order.Applications.Features.CQRS.Handlers.OrderDetailHandlers
 {
-    public class UpdateOrderDetailQueryCommand
+    public class UpdateOrderDetailCommandHandler
     {
         private readonly IGenericRepository<OrderDetail> _genericRepository;
 
-        public UpdateOrderDetailQueryCommand(IGenericRepository<OrderDetail> genericRepository)
+        public UpdateOrderDetailCommandHandler(IGenericRepository<OrderDetail> genericRepository)
         {
             _genericRepository = genericRepository;
         }
