@@ -3,7 +3,7 @@ using MultiShop.Order.Domain.Entities;
 
 namespace MultiShop.Order.Persistence.Context
 {
-    public class OrderContext :DbContext
+    public class OrderContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

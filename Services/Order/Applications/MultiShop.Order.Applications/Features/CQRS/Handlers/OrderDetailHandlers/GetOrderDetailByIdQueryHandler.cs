@@ -1,6 +1,4 @@
-﻿using MultiShop.Order.Applications.Features.CQRS.Queries.AddressQueries;
-using MultiShop.Order.Applications.Features.CQRS.Queries.OrderDetailQueries;
-using MultiShop.Order.Applications.Features.CQRS.Results.AddressResults;
+﻿using MultiShop.Order.Applications.Features.CQRS.Queries.OrderDetailQueries;
 using MultiShop.Order.Applications.Features.CQRS.Results.OrderDetailResults;
 using MultiShop.Order.Applications.Interfaces;
 using MultiShop.Order.Domain.Entities;
@@ -26,8 +24,8 @@ namespace MultiShop.Order.Applications.Features.CQRS.Handlers.OrderDetailHandler
                 ProductId = values.ProductId,
                 ProductName = values.ProductName,
                 OrderingId = values.OrderingId,
-                ProductPrice = values.ProductPrice, 
-                ProductTotalPrice = values.ProductTotalPrice    
+                ProductPrice = values.ProductPrice,
+                ProductTotalPrice = values.ProductTotalPrice
             };
         }
     }
