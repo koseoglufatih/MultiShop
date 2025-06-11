@@ -5,11 +5,11 @@ using System.Linq.Expressions;
 
 namespace MultiShop.Order.Persistence.Repositories
 {
-    public class Repository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly OrderContext _context;
 
-        public Repository(OrderContext context)
+        public GenericRepository(OrderContext context)
         {
             _context = context;
         }
