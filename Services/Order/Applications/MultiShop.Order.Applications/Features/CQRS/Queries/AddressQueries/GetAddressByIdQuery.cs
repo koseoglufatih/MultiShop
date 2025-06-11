@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Queries.AddressQueries
+namespace MultiShop.Order.Applications.Features.CQRS.Queries.AddressQueries
 {
     public class GetAddressByIdQuery
     {
