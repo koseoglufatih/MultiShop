@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Mediator\Commands\OrderingCommands\" />
     <Folder Include="Features\Mediator\Handlers\" />
   </ItemGroup>
 
