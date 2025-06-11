@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\CQRS\Commands\AddressCommands\CreateAddressCommand.cs" />
+    <Compile Include="Features\CQRS\Commands\AddressCommands\RemoveAddressCommand.cs" />
+    <Compile Include="Features\CQRS\Commands\AddressCommands\UpdateAddressCommand.cs" />
+    <Compile Include="Features\CQRS\Handlers\AddressHandlers\CreateAddressCommandHandler.cs" />
     <Compile Include="Features\CQRS\Queries\AddressQueries\GetAddressByIdQuery.cs" />
     <Compile Include="Features\CQRS\Results\AddressResults\GetAddressByIdQueryResult.cs" />
     <Compile Include="Features\CQRS\Results\AddressResults\GetAddressQueryResult.cs" />
@@ -48,9 +52,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\CQRS\Commands\AddressCommands\" />
-    <Folder Include="Features\CQRS\Handlers\AddressHandlers\" />
     <Folder Include="Features\Mediator\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MultiShop.Order.Domain\MultiShop.Order.Domain.csproj">
+      <Project>{3f4ac92e-cc33-4898-9e21-f1a3d474eb8b}</Project>
+      <Name>MultiShop.Order.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
