@@ -19,7 +19,7 @@ namespace MultiShop.Order.WebApi.Controllers
         public async Task<IActionResult> OrderingList()
         {
             var values = await _mediator.Send(new GetOrderingQuery());
-            return Ok(values);  
+            return Ok(values);
         }
 
         [HttpGet("{id}")]
@@ -33,6 +33,18 @@ namespace MultiShop.Order.WebApi.Controllers
         {
             await _mediator.Send(command);
             return Ok("Sipariş başarıyla eklendi");
+        }
+        [HttpDelete]
+        public async Task<IActionResult> RemoveOrdering(int id)
+        {
+            await _mediator.Send(new RemoveOrderingCommand(id));
+            return Ok("Sipariş başarıyla silindi.");
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateOrdering(UpdateOrderingCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok("Sipariş başarıyla güncellendi");
         }
     }
 }
