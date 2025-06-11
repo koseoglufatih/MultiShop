@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Discount.Dtos;
 using MultiShop.Discount.Services;
-using System.Runtime.CompilerServices;
 
 namespace MultiShop.Discount.Controllers
 {

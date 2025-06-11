@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using MultiShop.Catalog.Dtos.ProductDetailsDtos;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Catalog.Dtos.ProductImageDtos;
-using MultiShop.Catalog.Services.ProductDetailServices;
 using MultiShop.Catalog.Services.ProductImageServices;
 
 namespace MultiShop.Catalog.Controllers

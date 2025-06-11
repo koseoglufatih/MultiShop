@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using MultiShop.Catalog.Dtos.CategoryDtos;
-using MultiShop.Catalog.Dtos.ProductDetailsDtos;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Catalog.Dtos.ProductDtos;
-using MultiShop.Catalog.Services.CategoryServices;
 using MultiShop.Catalog.Services.ProductServices;
 
 namespace MultiShop.Catalog.Controllers

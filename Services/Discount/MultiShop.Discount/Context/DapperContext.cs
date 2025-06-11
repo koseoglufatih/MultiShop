@@ -5,7 +5,7 @@ using System.Data;
 
 namespace MultiShop.Discount.Context
 {
-    public class DapperContext :DbContext
+    public class DapperContext : DbContext
     {
         private readonly IConfiguration _configuration;
         private readonly string _connectionString;

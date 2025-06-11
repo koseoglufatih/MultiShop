@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Catalog.Dtos.CategoryDtos;
 using MultiShop.Catalog.Services.CategoryServices;
 
@@ -26,7 +25,7 @@ namespace MultiShop.Catalog.Controllers
         public async Task<IActionResult> GetCategoryById(string id)
         {
             var values = await _categoryService.GetByIdCategoryAsync(id);
-            return Ok(values);  
+            return Ok(values);
         }
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)

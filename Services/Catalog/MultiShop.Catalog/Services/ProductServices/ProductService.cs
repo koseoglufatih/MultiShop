@@ -26,7 +26,7 @@ namespace MultiShop.Catalog.Services.ProductServices
 
         public async Task DeleteProductAsync(string id)
         {
-           await _productCollection.DeleteOneAsync(x=>x.ProductID == id);
+            await _productCollection.DeleteOneAsync(x => x.ProductID == id);
         }
 
         public async Task<List<ResultProductDto>> GetAllProductAsync()

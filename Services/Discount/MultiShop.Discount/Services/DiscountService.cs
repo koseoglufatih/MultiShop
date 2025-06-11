@@ -1,8 +1,6 @@
 ﻿using Dapper;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using MultiShop.Discount.Context;
 using MultiShop.Discount.Dtos;
-using System.Net.Http.Headers;
 
 namespace MultiShop.Discount.Services
 {
@@ -58,7 +56,7 @@ namespace MultiShop.Discount.Services
             parameters.Add("@couponId", id);
             using (var connection = _dapperContext.CreateConnection())
             {
-                var values = await connection.QueryFirstOrDefaultAsync<GetByIdDiscountCouponDto>(query,parameters);
+                var values = await connection.QueryFirstOrDefaultAsync<GetByIdDiscountCouponDto>(query, parameters);
                 return values;
             }
         }
