@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt=>
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
     opt.Authority = builder.Configuration["IdentityServerUrl"]; //kiminle beraber kullanacaðýz
     opt.Audience = ""; //dinleyici olan 

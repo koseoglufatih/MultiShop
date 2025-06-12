@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.IdentityServer.Dtos;
 using MultiShop.IdentityServer.Models;
@@ -29,7 +27,7 @@ namespace MultiShop.IdentityServer.Controllers
                 Surname = dto.Surname,
                 Name = dto.Name
             };
-            var result = await _userManager.CreateAsync(values,dto.Password);
+            var result = await _userManager.CreateAsync(values, dto.Password);
             if (result.Succeeded)
             {
                 return Ok("Kullanıcı başarıyla eklendi");

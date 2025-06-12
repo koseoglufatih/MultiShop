@@ -3,7 +3,7 @@ using MultiShop.Cargo.EntityLayer.Concrete;
 
 namespace MultiShop.Cargo.DataAccessLayer.Concrete
 {
-    public class CargoContext:DbContext
+    public class CargoContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

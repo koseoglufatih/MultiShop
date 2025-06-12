@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Order.Applications.Features.CQRS.Commands.AddressCommands;
 using MultiShop.Order.Applications.Features.CQRS.Handlers.AddressHandlers;
 using MultiShop.Order.Applications.Features.CQRS.Queries.AddressQueries;
@@ -60,5 +59,5 @@ namespace MultiShop.Order.WebApi.Controllers
 
         }
     }
-    
+
 }

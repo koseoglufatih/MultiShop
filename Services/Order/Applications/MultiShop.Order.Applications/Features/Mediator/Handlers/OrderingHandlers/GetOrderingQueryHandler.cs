@@ -18,9 +18,9 @@ namespace MultiShop.Order.Applications.Features.Mediator.Handlers.OrderingHandle
         public async Task<List<GetOrderingQueryResult>> Handle(GetOrderingQuery request, CancellationToken cancellationToken)
         {
             var values = await _genericRepository.GetAllAsync();
-            return values.Select(x=>new GetOrderingQueryResult
+            return values.Select(x => new GetOrderingQueryResult
             {
-                OrderingId  = x.OrderingId,
+                OrderingId = x.OrderingId,
                 OrderDate = x.OrderDate,
                 TotalPrice = x.TotalPrice,
                 UserId = x.UserId,
