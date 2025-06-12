@@ -2,11 +2,14 @@ using MultiShop.Order.Applications.Features.CQRS.Handlers.AddressHandlers;
 using MultiShop.Order.Applications.Features.CQRS.Handlers.OrderDetailHandlers;
 using MultiShop.Order.Applications.Interfaces;
 using MultiShop.Order.Applications.Services;
+using MultiShop.Order.Persistence.Context;
 using MultiShop.Order.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<OrderContext>();
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddApplicationService(builder.Configuration);
