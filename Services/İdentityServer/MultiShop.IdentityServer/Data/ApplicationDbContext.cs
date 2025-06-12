@@ -12,10 +12,9 @@ namespace MultiShop.IdentityServer.Data
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnModelCreating(builder);
-     
+            optionsBuilder.UseSqlServer("Server =localhost,1433;initial catalog=MultiShopIdentityDb;User=sa;Password=123456aA*");
         }
     }
 }
