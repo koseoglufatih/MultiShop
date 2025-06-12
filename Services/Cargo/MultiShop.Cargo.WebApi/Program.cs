@@ -1,20 +1,6 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using MultiShop.Discount.Context;
-using MultiShop.Discount.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
-{
-    opt.Authority = builder.Configuration["IdentityServerUrl"]; //kiminle beraber kullanacaðýz
-    opt.Audience = ""; //dinleyici olan 
-    opt.RequireHttpsMetadata = false;
-});
-
-builder.Services.AddTransient<DapperContext>();
-builder.Services.AddTransient<IDiscountService, DiscountService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
