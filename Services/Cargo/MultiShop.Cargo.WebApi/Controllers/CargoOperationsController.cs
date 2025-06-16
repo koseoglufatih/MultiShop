@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Cargo.BusinessLayer.Abstract;
-using MultiShop.Cargo.DtoLayer.CargoCompanyDtos;
 using MultiShop.Cargo.DtoLayer.CargoOperationDtos;
 using MultiShop.Cargo.EntityLayer.Concrete;
 
@@ -12,7 +10,7 @@ namespace MultiShop.Cargo.WebApi.Controllers
     public class CargoOperationsController : ControllerBase
     {
 
-        private readonly ICargoOperationService  _cargoOperationService;
+        private readonly ICargoOperationService _cargoOperationService;
 
         public CargoOperationsController(ICargoOperationService cargoOperationService)
         {
@@ -29,9 +27,9 @@ namespace MultiShop.Cargo.WebApi.Controllers
         {
             CargoOperation cargoOperation = new CargoOperation()
             {
-               Barcode = createCargoOperationDto.Barcode,
-               Description  = createCargoOperationDto.Description,
-               OperationDate = createCargoOperationDto.OperationDate,
+                Barcode = createCargoOperationDto.Barcode,
+                Description = createCargoOperationDto.Description,
+                OperationDate = createCargoOperationDto.OperationDate,
             };
             _cargoOperationService.TInsert(cargoOperation);
             return Ok("Kargo işlemi başarıyla oluşturuldu");
@@ -58,7 +56,7 @@ namespace MultiShop.Cargo.WebApi.Controllers
                 OperationDate = updateCargoOperationDto.OperationDate,
                 Barcode = updateCargoOperationDto.Barcode,
                 CargoOperationId = updateCargoOperationDto.CargoOperationId,
-                Description = updateCargoOperationDto.Description 
+                Description = updateCargoOperationDto.Description
             };
             _cargoOperationService.TUpdate(cargoOperation);
             return Ok("Kargo işlemi başaıyla güncellendi.");

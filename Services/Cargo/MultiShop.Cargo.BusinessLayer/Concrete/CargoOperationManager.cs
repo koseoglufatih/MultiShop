@@ -15,7 +15,7 @@ namespace MultiShop.Cargo.BusinessLayer.Concrete
 
         public void TDelete(int id)
         {
-           _cargoOperationDal.Delete(id);
+            _cargoOperationDal.Delete(id);
         }
 
         public List<CargoOperation> TGetAll()
@@ -25,7 +25,7 @@ namespace MultiShop.Cargo.BusinessLayer.Concrete
 
         public CargoOperation TGetById(int id)
         {
-           return _cargoOperationDal.GetById(id);
+            return _cargoOperationDal.GetById(id);
         }
 
         public void TInsert(CargoOperation entity)

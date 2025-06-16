@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Cargo.BusinessLayer.Abstract;
 using MultiShop.Cargo.DtoLayer.CargoCompanyDtos;
 using MultiShop.Cargo.EntityLayer.Concrete;
@@ -19,7 +18,7 @@ namespace MultiShop.Cargo.WebApi.Controllers
         [HttpGet]
         public IActionResult CargoCompanyList()
         {
-             var values = _cargoCompanyService.TGetAll();
+            var values = _cargoCompanyService.TGetAll();
             return Ok(values);
         }
         [HttpPost]
@@ -32,7 +31,7 @@ namespace MultiShop.Cargo.WebApi.Controllers
             _cargoCompanyService.TInsert(cargoCompany);
             return Ok("Kargo şirketi başarıyla oluşturuldu");
         }
-        
+
         [HttpDelete]
         public IActionResult RemoveCargoCompany(int id)
         {

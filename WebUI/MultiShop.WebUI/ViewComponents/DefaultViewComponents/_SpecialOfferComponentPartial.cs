@@ -2,12 +2,11 @@
 
 namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
 {
-    public class _CarouselDefaultComponentPartial : ViewComponent
+    public class _SpecialOfferComponentPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
             return View();
         }
-
     }
 }

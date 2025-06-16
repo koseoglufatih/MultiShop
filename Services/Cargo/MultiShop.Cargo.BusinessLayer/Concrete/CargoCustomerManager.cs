@@ -25,12 +25,12 @@ namespace MultiShop.Cargo.BusinessLayer.Concrete
 
         public CargoCustomer TGetById(int id)
         {
-           return _cargoCustomerDal.GetById(id);
+            return _cargoCustomerDal.GetById(id);
         }
 
         public void TInsert(CargoCustomer entity)
         {
-           _cargoCustomerDal.Insert(entity);
+            _cargoCustomerDal.Insert(entity);
         }
 
         public void TUpdate(CargoCustomer entity)

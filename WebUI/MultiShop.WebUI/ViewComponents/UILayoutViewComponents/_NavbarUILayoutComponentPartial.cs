@@ -2,7 +2,7 @@
 
 namespace MultiShop.WebUI.ViewComponents.LayoutViewComponents
 {
-    public class _NavbarUILayoutComponentPartial :ViewComponent
+    public class _NavbarUILayoutComponentPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

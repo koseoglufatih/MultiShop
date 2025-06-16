@@ -20,22 +20,22 @@ namespace MultiShop.Cargo.BusinessLayer.Concrete
 
         public List<CargoDetail> TGetAll()
         {
-           return _cargoDetailDal.GetAll();
+            return _cargoDetailDal.GetAll();
         }
 
         public CargoDetail TGetById(int id)
         {
-           return _cargoDetailDal.GetById(id);
+            return _cargoDetailDal.GetById(id);
         }
 
         public void TInsert(CargoDetail entity)
         {
-           _cargoDetailDal.Insert(entity);
+            _cargoDetailDal.Insert(entity);
         }
 
         public void TUpdate(CargoDetail entity)
         {
-           _cargoDetailDal.Update(entity);
+            _cargoDetailDal.Update(entity);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Cargo.BusinessLayer.Abstract;
 using MultiShop.Cargo.DtoLayer.CargoCustomerDtos;
 using MultiShop.Cargo.EntityLayer.Concrete;
@@ -63,7 +62,7 @@ namespace MultiShop.Cargo.WebApi.Controllers
                 Email = updateCargoCustomerDto.Email,
                 Name = updateCargoCustomerDto.Name,
                 Phone = updateCargoCustomerDto.Phone,
-                Surname = updateCargoCustomerDto.Surname    
+                Surname = updateCargoCustomerDto.Surname
             };
             _cargoCustomerService.TUpdate(cargoCustomer);
             return Ok("Kargo müşteri güncelleme işlemi başarıyla yapıldı");

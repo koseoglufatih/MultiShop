@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddDbContext<CargoContext>();
-builder.Services.AddScoped<ICargoCompanyDal,EfCargoCompanyDal>();
-builder.Services.AddScoped<ICargoCompanyService,CargoCompanyManager>();
+builder.Services.AddScoped<ICargoCompanyDal, EfCargoCompanyDal>();
+builder.Services.AddScoped<ICargoCompanyService, CargoCompanyManager>();
 builder.Services.AddScoped<ICargoCustomerDal, EfCargoCustomerDal>();
 builder.Services.AddScoped<ICargoCustomerService, CargoCustomerManager>();
 builder.Services.AddScoped<ICargoDetailDal, EfCargoDetailDal>();
