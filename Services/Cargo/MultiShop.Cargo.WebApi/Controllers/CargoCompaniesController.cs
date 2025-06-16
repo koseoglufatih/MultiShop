@@ -19,7 +19,7 @@ namespace MultiShop.Cargo.WebApi.Controllers
         [HttpGet]
         public IActionResult CargoCompanyList()
         {
-            var values = _cargoCompanyService.TGetAll();
+             var values = _cargoCompanyService.TGetAll();
             return Ok(values);
         }
         [HttpPost]

@@ -10,4 +10,5 @@
         }
 
         public string GetUserId => httpContextAccessor.HttpContext.User.FindFirst("sub").Value;
+    }
 }
