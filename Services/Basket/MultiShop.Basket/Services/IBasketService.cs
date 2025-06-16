@@ -5,8 +5,8 @@ namespace MultiShop.Basket.Services
     public interface IBasketService
     {
         Task<BasketTotalDto> GetBasket(string userId);
-        Task<bool> SaveBasket(BasketTotalDto basket);
-        Task<bool> DeleteBasket(string userId);
+        Task SaveBasket(BasketTotalDto basketTotalDto);
+        Task DeleteBasket(string userId);
 
     }
 }
