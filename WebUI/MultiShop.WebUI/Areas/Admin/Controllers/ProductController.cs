@@ -34,5 +34,11 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             return View();
         }
 
+        [Route("CreateProduct")]
+        public async Task<IActionResult> CreateProduct()
+        {
+            return View();
+        }
+
     }
 }
