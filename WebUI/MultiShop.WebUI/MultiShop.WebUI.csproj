@@ -11,6 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="wwwroot\OvioAdmin\popup\assets\images\demos\demo-6\products\" />
     <Folder Include="wwwroot\OvioAdmin\popup\assets\images\popup\quickView\" />
     <Folder Include="wwwroot\OvioAdmin\popup\popup\" />
