@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewComponents;
 
 namespace MultiShop.WebUI.ViewComponents.ContactViewComponents
 {
@@ -9,7 +8,7 @@ namespace MultiShop.WebUI.ViewComponents.ContactViewComponents
         {
 
             return View();
-        
+
         }
     }
 }

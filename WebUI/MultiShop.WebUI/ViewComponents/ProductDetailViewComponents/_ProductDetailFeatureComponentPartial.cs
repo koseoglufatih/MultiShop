@@ -2,7 +2,7 @@
 
 namespace MultiShop.WebUI.ViewComponents.ProductDetailViewComponents
 {
-    public class _ProductDetailFeatureComponentPartial :ViewComponent
+    public class _ProductDetailFeatureComponentPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

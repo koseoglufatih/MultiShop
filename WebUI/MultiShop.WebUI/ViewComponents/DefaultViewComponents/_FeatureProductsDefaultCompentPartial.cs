@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewFeatures.Buffers;
 
 namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
 {

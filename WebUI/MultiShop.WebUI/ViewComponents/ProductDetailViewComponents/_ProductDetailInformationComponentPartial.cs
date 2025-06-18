@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NuGet.Versioning;
 
 namespace MultiShop.WebUI.ViewComponents.ProductDetailViewComponents
 {
