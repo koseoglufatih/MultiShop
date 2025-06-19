@@ -42,7 +42,7 @@ namespace MultiShop.Catalog.Controllers
             return Ok("Öne çıkan görsel başarıyla silindi");
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateFeatureSlider(UpdateFeatureSliderDtos updateFeatureSliderDtos)
+        public async Task<IActionResult> UpdateFeatureSlider(UpdateFeatureSliderDto updateFeatureSliderDtos)
         {
             await _featureSliderServices.UpdateFeatureSliderAsync(updateFeatureSliderDtos);
             return Ok("Öne çıkan görsel başarıyla güncellendi");

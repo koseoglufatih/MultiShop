@@ -40,10 +40,10 @@ namespace MultiShop.Catalog.Services.FeatureSliderServices
             throw new NotImplementedException();
         }
 
-        public async Task<List<ResultFeatureSliderDtos>> GetAllFeatureSliderAsync()
+        public async Task<List<ResultFeatureSliderDto>> GetAllFeatureSliderAsync()
         {
             var values = await _featureSliderCollection.Find(x => true).ToListAsync();
-            return _mapper.Map<List<ResultFeatureSliderDtos>>(values);
+            return _mapper.Map<List<ResultFeatureSliderDto>>(values);
         }
 
         public async Task<GetByIdFeatureSliderDto> GetByIdtFeatureSliderAsync(string id)
@@ -53,7 +53,7 @@ namespace MultiShop.Catalog.Services.FeatureSliderServices
             return _mapper.Map<GetByIdFeatureSliderDto>(values);
         }
 
-        public async Task UpdateFeatureSliderAsync(UpdateFeatureSliderDtos updateFeatureSliderDtos)
+        public async Task UpdateFeatureSliderAsync(UpdateFeatureSliderDto updateFeatureSliderDtos)
         {
             var values = _mapper.Map<FeatureSlider>(updateFeatureSliderDtos);
             await _featureSliderCollection.FindOneAndReplaceAsync(x => x.FeatureSliderId == updateFeatureSliderDtos.FeatureSliderId, values);
