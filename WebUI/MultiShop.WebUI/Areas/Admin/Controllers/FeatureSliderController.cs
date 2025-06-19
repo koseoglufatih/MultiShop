@@ -50,6 +50,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("CreateFeatureSlider")]
         public async Task<IActionResult> CreateFeatureSlider(CreateFeatureSliderDto createFeatureSliderDto)
         {
+            createFeatureSliderDto.Status = false;
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createFeatureSliderDto);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
