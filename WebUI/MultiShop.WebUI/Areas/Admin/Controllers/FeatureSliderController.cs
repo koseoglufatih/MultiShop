@@ -26,16 +26,13 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             var client = _httpClientFactory.CreateClient();
             var response = await client.GetAsync("https://localhost:7236/api/FeatureSliders"); 
 
-            if (!response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
-               
-                return View(new List<ResultFeatureSliderDto>());
+                var jsonData = await response.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultFeatureSliderDto>>(jsonData);
+                return View(values);
             }
-
-            var jsonData = await response.Content.ReadAsStringAsync();
-            var values = JsonConvert.DeserializeObject<List<ResultFeatureSliderDto>>(jsonData);
-
-            return View(values);
+            return View();
         }
 
 
@@ -47,7 +44,6 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v2 = "Öne Çıkan Görseller";
             ViewBag.v3 = "Slider Öne Çıkan Görseller Listesi";
             ViewBag.v0 = "Öne Çıkan Slider Görsel İşlemleri";
-
             return View();
         }
 
@@ -59,19 +55,19 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createFeatureSliderDto);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7236/api/FeatureSlider", content);
+            var responseMessage = await client.PostAsync("https://localhost:7236/api/FeatureSliders", content);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index", "FeatureSlider", new { area = "Admin" });
             }
-            return View(new CreateFeatureSliderDto());
+            return View();
         }
 
         [Route("DeleteFeatureSlider/{id}")]
         public async Task<IActionResult> DeleteFeatureSlider(string id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:7236/api/FeatureSlider?id={id}");
+            var responseMessage = await client.DeleteAsync($"https://localhost:7236/api/FeatureSliders?id={id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index", "FeatureSlider", new { area = "Admin" });

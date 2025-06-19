@@ -1,30 +1,26 @@
 ﻿@* UpdateCategory Sayfası *@
 
-@model UpdateFeatureSliderDto
+@model UpdateCategoryDto
 @{
-    ViewData["Title"] = "CreateCategory";
+    ViewData["Title"] = "UpdateCategory";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 <section class="content container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="chart-box">
-                <h4>Öne Çıkan Slider Görseli Güncelleme sayfası</h4>
+                <h4>Kategori Güncelleme sayfası</h4>
                 <br />
                 <div class="bs-example" data-example-id="bordered-table">
 
                     <form method="post">
-                        <input type="hidden" asp-for="FeatureSliderId"></input>
-                        <label>Görsel Başlığı</label>
-                        <input type="text" class="form-control" asp-for="Title" />
+                        <label>Kategori Id</label>
+                        <input type="text" readonly class="form-control" asp-for="CategoryId" />
                         <br />
-                        <label>Görsel Açıklaması</label>
-                        <input type="text" class="form-control" asp-for="Description" />
+                        <label>Kategori Adı</label>
+                        <input type="text"  class="form-control" asp-for="CategoryName" />
                         <br />
-                        <label>Görsel Linki</label>
-                        <input type="text" class="form-control" asp-for="ImageUrl" />
-                        <br />
-                        <button class="btn btn-primary">Öne Çıkan Slider Görseli Güncelle</button>
+                        <button class="btn btn-primary">Kategoriyi Güncelle</button>
                     </form>
                 </div>
             </div>

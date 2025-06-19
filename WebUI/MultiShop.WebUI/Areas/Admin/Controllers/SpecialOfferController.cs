@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MultiShop.DtoLayer.CatalogDtos.FeatureSliderDtos;
 using MultiShop.DtoLayer.CatalogDtos.SpecialOfferDtos;
 using Newtonsoft.Json;
 using System.Text;
@@ -28,14 +29,20 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7236/api/SpecialOffer");
+
             if (responseMessage.IsSuccessStatusCode)
             {
+
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultSpecialOfferDto>>(jsonData);
+
                 return View(values);
             }
             return View();
         }
+
+           
+      
 
 
         [HttpGet]
@@ -52,7 +59,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         [HttpPost]
         [Route("CreateSpecialOffer")]
-        public async Task<IActionResult> CreateSpecialOffer(CreateSpecialOfferDto createSpecialOfferDto)
+        public async Task<IActionResult> CreateSpecialOffer([FromBody] CreateSpecialOfferDto createSpecialOfferDto)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createSpecialOfferDto);
