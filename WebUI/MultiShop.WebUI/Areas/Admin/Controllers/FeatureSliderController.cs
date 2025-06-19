@@ -86,7 +86,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v0 = "Öne Çıkan Slider Görsel İşlemleri";
 
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:7236/api/FeatureSlider/{id}");
+            var responseMessage = await client.GetAsync($"https://localhost:7236/api/FeatureSliders/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -103,7 +103,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             var client = _httpClientFactory.CreateClient();
             var JsonData = JsonConvert.SerializeObject(updateFeatureSliderDto);
             StringContent stringContent = new StringContent(JsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync($"https://localhost:7236/api/FeatureSlider/", stringContent);
+            var responseMessage = await client.PutAsync($"https://localhost:7236/api/FeatureSliders/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index", "FeatureSlider", new { area = "Admin" });
