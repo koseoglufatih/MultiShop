@@ -1,4 +1,5 @@
 ﻿namespace MultiShop.DtoLayer.CatalogDtos.SpecialOfferDtos
+{
     public class UpdateSpecialOfferDto
     {
         public string SpecialOfferId { get; set; }
