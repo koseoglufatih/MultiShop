@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Catalog.Dtos.SpecialOfferDtos;
 using MultiShop.Catalog.Services.SpecialOfferServices;
 
@@ -9,7 +8,7 @@ namespace MultiShop.Catalog.Controllers
     [ApiController]
     public class SpecialOffersController : ControllerBase
     {
-        private readonly ISpecialOfferService  _specialOfferService;
+        private readonly ISpecialOfferService _specialOfferService;
 
         public SpecialOffersController(ISpecialOfferService specialOfferService)
         {

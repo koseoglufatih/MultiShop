@@ -11,7 +11,7 @@ namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
         {
             _httpClientFactory = httpClientFactory;
         }
-    
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
 

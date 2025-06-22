@@ -24,7 +24,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v0 = "Öne Çıkan Slider Görsel İşlemleri";
 
             var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync("https://localhost:7236/api/FeatureSliders"); 
+            var response = await client.GetAsync("https://localhost:7236/api/FeatureSliders");
 
             if (response.IsSuccessStatusCode)
             {

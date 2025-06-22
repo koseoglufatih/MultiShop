@@ -1,6 +1,5 @@
-﻿    using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MultiShop.DtoLayer.CatalogDtos.FeatureSliderDtos;
 using MultiShop.DtoLayer.CatalogDtos.SpecialOfferDtos;
 using Newtonsoft.Json;
 using System.Text;
