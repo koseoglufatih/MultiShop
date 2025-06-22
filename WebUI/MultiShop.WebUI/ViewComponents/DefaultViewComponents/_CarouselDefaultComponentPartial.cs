@@ -16,7 +16,7 @@ namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7236/api/FeatureSlider");
+            var responseMessage = await client.GetAsync("https://localhost:7236/api/FeatureSliders");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
