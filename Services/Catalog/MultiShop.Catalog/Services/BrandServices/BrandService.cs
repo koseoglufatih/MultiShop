@@ -19,9 +19,9 @@ namespace MultiShop.Catalog.Services.BrandServices
             _mapper = mapper;
         }
 
-        public async Task CreateBrandAsync(CreateBrandDto createCategoryDto)
+        public async Task CreateBrandAsync(CreateBrandDto createBrandDto)
         {
-            var value = _mapper.Map<Brand>(createCategoryDto);
+            var value = _mapper.Map<Brand>(createBrandDto);
             await _brandCollection.InsertOneAsync(value);
 
         }
