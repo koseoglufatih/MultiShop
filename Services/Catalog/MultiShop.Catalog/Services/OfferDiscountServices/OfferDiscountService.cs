@@ -6,7 +6,7 @@ using MultiShop.Catalog.Settings;
 
 namespace MultiShop.Catalog.Services.OfferDiscountServices
 {
-    public class OfferDiscountService :IOfferDiscountService
+    public class OfferDiscountService : IOfferDiscountService
     {
         private readonly IMapper _mapper;
         private readonly IMongoCollection<OfferDiscount> _offerDiscount;
