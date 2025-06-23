@@ -21,9 +21,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Öne Çıkanlar";
-            ViewBag.v3 = "Öne Çıkan Girişi";
-            ViewBag.v0 = "Öne Çıkan İşlemleri";
+            ViewBag.v2 = "Öne Çıkan Alanlar";
+            ViewBag.v3 = "Öne Çıkan Alan Listesi";
+            ViewBag.v0 = "Ana Sayfa Öne Çıkan Alan İşlemleri";
 
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7236/api/Features");
@@ -43,9 +43,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         {
 
             ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Öne Çıkanlar";
-            ViewBag.v3 = "Öne Çıkan Girişi";
-            ViewBag.v0 = "Öne Çıkan İşlemleri";
+            ViewBag.v2 = "Öne Çıkan Alanlar";
+            ViewBag.v3 = "Öne Çıkan Alan Listesi";
+            ViewBag.v0 = "Ana Sayfa Öne Çıkan Alan İşlemleri";
 
             return View();
         }
@@ -55,9 +55,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> CreateFeature(CreateFeatureDto createFeatureDto)
         {
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createCategoryDto);
+            var jsonData = JsonConvert.SerializeObject(createFeatureDto);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7236/api/Categories", content);
+            var responseMessage = await client.PostAsync("https://localhost:7236/api/Features", content);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index", "Feature", new { area = "Admin" });
@@ -69,7 +69,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> DeleteFeature(string id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:7236/api/Categories?id={id}");
+            var responseMessage = await client.DeleteAsync($"https://localhost:7236/api/Features?id={id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index", "Feature", new { area = "Admin" });
@@ -82,9 +82,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> UpdateFeature(string id)
         {
             ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Öne Çıkanlar";
-            ViewBag.v3 = "Öne Çıkan Girişi";
-            ViewBag.v0 = "Öne Çıkan İşlemleri";
+            ViewBag.v2 = "Öne Çıkan Alanlar";
+            ViewBag.v3 = "Öne Çıkan Alan Listesi";
+            ViewBag.v0 = "Ana Sayfa Öne Çıkan Alan İşlemleri";
 
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7236/api/Features/{id}");
