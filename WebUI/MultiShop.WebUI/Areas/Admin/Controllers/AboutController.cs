@@ -27,11 +27,11 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v0 = "Hakkında İşlemleri";
 
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7236/api/Categories");
+            var responseMessage = await client.GetAsync("https://localhost:7236/api/Abouts");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultAboutDto>>(jsonData);
                 return View(values);
             }
             return View();
