@@ -15,7 +15,7 @@ namespace MultiShop.WebUI.ViewComponents.ProductListViewComponents
         [Route("Index")]
         public async Task<IViewComponentResult> InvokeAsync(string id)
         {
-            
+
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7236/api/Products/ProductsWithCategoryByCategoryId?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
@@ -28,4 +28,4 @@ namespace MultiShop.WebUI.ViewComponents.ProductListViewComponents
         }
     }
 }
-        
+

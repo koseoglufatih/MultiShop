@@ -10,7 +10,7 @@ namespace MultiShop.Catalog.Controllers
     [ApiController]
     public class AboutsController : ControllerBase
     {
-        private readonly IAboutService  _aboutService;
+        private readonly IAboutService _aboutService;
 
         public AboutsController(IAboutService aboutService)
         {

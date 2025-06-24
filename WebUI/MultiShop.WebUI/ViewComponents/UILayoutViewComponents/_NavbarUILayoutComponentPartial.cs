@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.CategoryDtos;
-using MultiShop.DtoLayer.CatalogDtos.ProductDtos;
 using Newtonsoft.Json;
 
 namespace MultiShop.WebUI.ViewComponents.LayoutViewComponents
@@ -13,7 +12,7 @@ namespace MultiShop.WebUI.ViewComponents.LayoutViewComponents
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async  Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7236/api/Categories");
