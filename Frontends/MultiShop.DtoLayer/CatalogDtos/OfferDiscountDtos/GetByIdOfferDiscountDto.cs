@@ -1,5 +1,5 @@
 ﻿namespace MultiShop.DtoLayer.CatalogDtos.OfferDiscountDtos
-{ 
+{
     public class GetByIdOfferDiscountDto
     {
         public string OfferDiscountId { get; set; }

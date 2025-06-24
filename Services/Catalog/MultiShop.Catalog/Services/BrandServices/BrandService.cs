@@ -6,7 +6,7 @@ using MultiShop.Catalog.Settings;
 
 namespace MultiShop.Catalog.Services.BrandServices
 {
-    public class BrandService :IBrandService
+    public class BrandService : IBrandService
     {
         private readonly IMongoCollection<Brand> _brandCollection;
         private readonly IMapper _mapper;
