@@ -18,7 +18,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        [Route("o/{id}")]
+        [Route("UpdateProductDetail/{id}")]
         [HttpGet]
         public async Task<IActionResult> UpdateProductDetail(string id)
         {
@@ -39,7 +39,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             return View();
         }
 
-        [Route("o/{id}")]
+        [Route("UpdateProductDetail/{id}")]
         [HttpPost]
         public async Task<IActionResult> o(UpdateProductDetailDto updateProductDetailDto)
         {
