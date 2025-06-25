@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
-    
+
     [Area("Admin")]
     [AllowAnonymous]
     [Route("Admin/ProductDetail")]
@@ -29,7 +29,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v0 = "Ürün İşlemleri";
 
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:7236/api/ProductDetails/" + id);
+            var responseMessage = await client.GetAsync($"https://localhost:7236/api/ProductDetails/GetProductDetailByProductId?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
