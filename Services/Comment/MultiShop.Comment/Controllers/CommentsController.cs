@@ -41,5 +41,21 @@ namespace MultiShop.Comment.Controllers
             return Ok("Yorum başarıyla güncellendi");
         }
 
+        [HttpDelete]
+        public IActionResult DeleteComment(int id)
+        {
+            var value = _commentContext.UserComments.Find(id);
+            _commentContext.UserComments.Remove(value);
+            _commentContext.SaveChanges();
+            return Ok("Yorum başarıyla silindi");
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetComment(int id)
+        {
+            var value = _commentContext.UserComments.Find(id);
+            return Ok(value);
+        }
+
     }
 }
