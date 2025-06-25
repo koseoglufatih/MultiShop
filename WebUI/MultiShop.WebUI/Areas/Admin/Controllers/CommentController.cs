@@ -74,6 +74,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateComment(UpdateCommentDto updateCommentDto)
         {
+            updateCommentDto.Status = true;
             var client = _httpClientFactory.CreateClient();
             var JsonData = JsonConvert.SerializeObject(updateCommentDto);
             StringContent stringContent = new StringContent(JsonData, Encoding.UTF8, "application/json");

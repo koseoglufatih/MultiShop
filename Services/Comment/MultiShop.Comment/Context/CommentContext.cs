@@ -3,7 +3,7 @@ using MultiShop.Comment.Entities;
 
 namespace MultiShop.Comment.Context
 {
-    public class CommentContext :DbContext
+    public class CommentContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

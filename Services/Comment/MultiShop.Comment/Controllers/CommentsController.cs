@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Comment.Context;
 using MultiShop.Comment.Entities;
@@ -54,6 +53,13 @@ namespace MultiShop.Comment.Controllers
         public IActionResult GetComment(int id)
         {
             var value = _commentContext.UserComments.Find(id);
+            return Ok(value);
+        }
+
+        [HttpGet("CommentListByProductId")]
+        public IActionResult CommentListByProductId(string id)
+        {
+            var value = _commentContext.UserComments.Where(x => x.ProductId == id).ToList();
             return Ok(value);
         }
 
