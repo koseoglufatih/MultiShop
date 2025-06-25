@@ -10,5 +10,9 @@
         public int Rating { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool Status { get; set; }
+
+        public int ProductId { get; set; }
+
     }
+
 }
