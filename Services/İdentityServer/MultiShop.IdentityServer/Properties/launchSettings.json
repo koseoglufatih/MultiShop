@@ -18,7 +18,7 @@
     "MultiShop.IdentityServer": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5001",
+      "applicationUrl": "https://localhost:44320",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
