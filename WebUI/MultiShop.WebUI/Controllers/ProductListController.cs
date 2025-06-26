@@ -39,6 +39,7 @@ namespace MultiShop.WebUI.Controllers
             createCommentDto.Rating = 1;
             createCommentDto.CreatedDate= DateTime.Parse(DateTime.Now.ToShortDateString());
             createCommentDto.Status = false;
+            createCommentDto.ProductId = "6847d2d84373129eaf5e8f12";
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createCommentDto);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
