@@ -59,7 +59,7 @@ namespace MultiShop.WebUI.Controllers
 							ExpiresUtc = tokenModel.ExpireDate,
 							IsPersistent = true
 						};
-						await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme,new ClaimsPrincipal(claimsIdentity),authProps);
+						await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProps);
 						return RedirectToAction("Index", "Default");
 					}
 

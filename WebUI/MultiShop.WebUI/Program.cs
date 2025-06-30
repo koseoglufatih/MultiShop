@@ -10,7 +10,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
 {
 	opt.LoginPath = "/Login/Index";
 	opt.LogoutPath = "/Login/LogOut";
-	opt.AccessDeniedPath= "/Pages/AccessDenied";
+	opt.AccessDeniedPath = "/Pages/AccessDenied";
 	opt.Cookie.HttpOnly = true;
 	opt.Cookie.SameSite = SameSiteMode.Strict;
 	opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
@@ -19,7 +19,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
 
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddScoped<ILoginService,LoginService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
 
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
