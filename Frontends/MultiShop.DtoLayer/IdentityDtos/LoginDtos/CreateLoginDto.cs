@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MultiShop.DtoLayer.IdentityDtos.LoginDtos
+﻿namespace MultiShop.DtoLayer.IdentityDtos.LoginDtos
 {
-	internal class CreateLoginDto
+	public class CreateLoginDto
 	{
-	}
+        public string UserName { get; set; }
+        public string Password { get; set; }
+    }
 }
