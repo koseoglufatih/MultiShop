@@ -1,9 +1,13 @@
 ﻿using IdentityModel.Client;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using MultiShop.DtoLayer.IdentityDtos.LoginDtos;
 using MultiShop.WebUI.Services.Interfaces;
 using MultiShop.WebUI.Settings;
 using NuGet.Packaging;
+using System.Security.Claims;
 
 namespace MultiShop.WebUI.Services.Concrete
 {
@@ -39,6 +43,38 @@ namespace MultiShop.WebUI.Services.Concrete
                 Password = signUpDto.Password,
                 Address = discoveryEndPoint.TokenEndpoint
             };
+
+            var token = await _httpClient.RequestPasswordTokenAsync(passwordTokenRequest);
+
+            var userInfoRequest = new UserInfoRequest
+            {
+                Token = token.AccessToken,
+                Address = discoveryEndPoint.UserInfoEndpoint,
+            };
+            var userValues = await _httpClient.GetUserInfoAsync(userInfoRequest);
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(userValues.Claims, CookieAuthenticationDefaults.AuthenticationScheme, "name", "role");
+
+            ClaimsPrincipal principal = new ClaimsPrincipal(claimsIdentity);
+
+            var authenticationProperties = new AuthenticationProperties();
+            authenticationProperties.StoreTokens(new List<AuthenticationToken>()
+            {
+                new AuthenticationToken
+                {
+                    Name = OpenIdConnectParameterNames.AccessToken,
+                    Value = token.AccessToken
+                },
+                new AuthenticationToken
+                {
+                    Name = OpenIdConnectParameterNames.RefreshToken,
+                    Value = token.RefreshToken
+                },
+                new AuthenticationToken
+                {
+                    Name = OpenIdConnectParameterNames.ExpiresIn,
+                    Value =DateTime.Now.AddSeconds(token.ExpiresIn).ToString()
+                }
+            });
 
 
         }
