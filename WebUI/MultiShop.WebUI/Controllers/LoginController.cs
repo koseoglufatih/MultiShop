@@ -30,7 +30,7 @@ namespace MultiShop.WebUI.Controllers
 		{
 			var client = _httpClientFactory.CreateClient();
 			var content = new StringContent(JsonSerializer.Serialize(createLoginDto), Encoding.UTF8, "application/json");
-			var response = await client.PostAsync("https://localhost:7169/api/logins", content);
+			var response = await client.PostAsync("https://localhost:44320/api/Logins", content);
 			if (response.IsSuccessStatusCode)
 			{
 				var jsonData = await response.Content.ReadAsStringAsync();
