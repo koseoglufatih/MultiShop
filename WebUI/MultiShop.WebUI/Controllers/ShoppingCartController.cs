@@ -2,11 +2,11 @@
 
 namespace MultiShop.WebUI.Controllers
 {
-    public class ShoppingCartController : Controller
-    {
-        public IActionResult Index()
-        {
-            return View();
-        }
-    }
+	public class ShoppingCartController : Controller
+	{
+		public IActionResult Index()
+		{
+			return View();
+		}
+	}
 }

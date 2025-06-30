@@ -2,11 +2,11 @@
 
 namespace MultiShop.WebUI.ViewComponents.ShoppingCartViewComponents
 {
-    public class _ShoppingCartDiscountCouponComponentPartial : ViewComponent
-    {
-        public IViewComponentResult Invoke()
-        {
-            return View();
-        }
-    }
+	public class _ShoppingCartDiscountCouponComponentPartial : ViewComponent
+	{
+		public IViewComponentResult Invoke()
+		{
+			return View();
+		}
+	}
 }

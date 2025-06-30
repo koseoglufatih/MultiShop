@@ -15,9 +15,9 @@ JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
 
-    opt.Authority = builder.Configuration["IdentityServerUrl"]; //kiminle beraber kullanacaðýz
-    opt.Audience = ""; //dinleyici olan 
-    opt.RequireHttpsMetadata = false;
+	opt.Authority = builder.Configuration["IdentityServerUrl"]; //kiminle beraber kullanacaðýz
+	opt.Audience = ""; //dinleyici olan 
+	opt.RequireHttpsMetadata = false;
 });
 
 builder.Services.AddHttpContextAccessor();
@@ -26,10 +26,10 @@ builder.Services.AddScoped<IBasketService, BasketService>();
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
 builder.Services.AddSingleton<RedisService>(sp =>
 {
-    var redisSettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
-    var redis = new RedisService(redisSettings.Host, redisSettings.Port);
-    redis.Connect();
-    return redis;
+	var redisSettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
+	var redis = new RedisService(redisSettings.Host, redisSettings.Port);
+	redis.Connect();
+	return redis;
 });
 
 builder.Services.AddControllers();
@@ -49,8 +49,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	app.UseSwagger();
+	app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

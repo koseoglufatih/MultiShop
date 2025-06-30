@@ -5,8 +5,8 @@ using System.Text;
 
 namespace MultiShop.WebUI.Controllers
 {
-    public class RegisterController : Controller
-    {
+	public class RegisterController : Controller
+	{
 		private readonly IHttpClientFactory _httpClientFactory;
 
 		public RegisterController(IHttpClientFactory httpClientFactory)
@@ -15,15 +15,15 @@ namespace MultiShop.WebUI.Controllers
 		}
 
 		[HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
+		public IActionResult Index()
+		{
+			return View();
+		}
 
 		[HttpPost]
 		public async Task<IActionResult> Index(CreateRegisterDto createRegisterDto)
 		{
-			if(createRegisterDto.Password ==createRegisterDto.ConfirmPassword)
+			if (createRegisterDto.Password == createRegisterDto.ConfirmPassword)
 			{
 				var client = _httpClientFactory.CreateClient();
 				var jsonData = JsonConvert.SerializeObject(createRegisterDto);

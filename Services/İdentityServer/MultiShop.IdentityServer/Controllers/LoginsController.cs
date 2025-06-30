@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.IdentityServer.Dtos;
 using MultiShop.IdentityServer.Models;
@@ -21,7 +20,7 @@ namespace MultiShop.IdentityServer.Controllers
 		[HttpPost]
 		public async Task<IActionResult> UserLogin(UserLoginDto userLoginDto)
 		{
-			var result = await _signInManager.PasswordSignInAsync(userLoginDto.Username,userLoginDto.Password,false,false);
+			var result = await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password, false, false);
 			if (result.Succeeded)
 			{
 				return Ok("Giriş Başarılı");

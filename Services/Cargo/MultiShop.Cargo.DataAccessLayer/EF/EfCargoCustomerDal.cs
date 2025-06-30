@@ -5,10 +5,10 @@ using MultiShop.Cargo.EntityLayer.Concrete;
 
 namespace MultiShop.Cargo.DataAccessLayer.EF
 {
-    public class EfCargoCustomerDal : GenericRepository<CargoCustomer>, ICargoCustomerDal
-    {
-        public EfCargoCustomerDal(CargoContext context) : base(context)
-        {
-        }
-    }
+	public class EfCargoCustomerDal : GenericRepository<CargoCustomer>, ICargoCustomerDal
+	{
+		public EfCargoCustomerDal(CargoContext context) : base(context)
+		{
+		}
+	}
 }
