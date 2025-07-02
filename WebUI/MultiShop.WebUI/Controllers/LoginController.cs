@@ -71,14 +71,14 @@ namespace MultiShop.WebUI.Controllers
 			return View();
 		}
 
-		[HttpGet]
-		public IActionResult SignIn()
+		//[HttpGet]
+		//public IActionResult SignIn()	
 
-		{
-			return View();
-		}
-
-        [HttpPost]
+		//{
+		//	return View();
+		//}
+			
+  //      [HttpPost]
         public async Task<IActionResult> SignIn(SignInDto signInDto)
 
         {
