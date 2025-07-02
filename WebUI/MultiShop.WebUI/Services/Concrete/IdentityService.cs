@@ -24,7 +24,7 @@ namespace MultiShop.WebUI.Services.Concrete
             _clientSettings = clientSettings.Value;
         }
 
-        public async Task<bool> SignIn(SignUpDto signUpDto)
+        public async Task<bool> SignIn(SignInDto signInDto)
         {
             var discoveryEndPoint = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
@@ -39,8 +39,8 @@ namespace MultiShop.WebUI.Services.Concrete
             {
                 ClientId = _clientSettings.MultiShopManagerId.ClientId,
                 ClientSecret = _clientSettings.MultiShopManagerId.ClientSecret,
-                UserName = signUpDto.UserName,
-                Password = signUpDto.Password,
+                UserName = signInDto.UserName,
+                Password = signInDto.Password,
                 Address = discoveryEndPoint.TokenEndpoint
             };
 
