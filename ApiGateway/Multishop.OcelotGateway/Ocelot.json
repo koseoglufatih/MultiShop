@@ -1,0 +1,26 @@
+{
+    "Routes": [
+      {
+        "DownstreamPathTemplate": "/api/{everything}",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 7236
+          }
+        ],
+
+        "UpstreamPathTemplate": "/services/catalog/{everything}",
+        "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+        "UpStreamScheme": "http",
+        "AuthenticationOptions": {
+          "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+          "AllowedScopes": ["CatalogFullPermission"]
+        }
+      }
+    ],
+    "GlobalConfiguration": {
+      "BaseUrl": "http://localhost:5000"
+    }
+  }
+
