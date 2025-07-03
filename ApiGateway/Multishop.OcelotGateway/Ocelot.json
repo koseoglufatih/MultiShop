@@ -12,7 +12,12 @@
       ],
 
       "UpstreamPathTemplate": "/services/catalog/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProdiverKey": "OcelotAuthenticationScheme",
+        "AllowedScopes": ["CatalogFullPermission"]
+      }
     },
     {
       "DownstreamPathTemplate": "/api/{everything}",
