@@ -50,6 +50,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.Basket", "Services\Basket\MultiShop.Basket\MultiShop.Basket.csproj", "{59C04A1E-478E-4E7A-8177-E2AA4ED78294}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{CB2444B7-4661-4C84-B1A4-2D3104D6DCED}"
+	ProjectSection(SolutionItems) = preProject
+		OcelotCodeExample.txt = OcelotCodeExample.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{28732380-539B-4B8B-878C-F21A98A96369}"
 EndProject
