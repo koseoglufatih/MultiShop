@@ -2,8 +2,8 @@
 
 namespace MultiShop.Cargo.DataAccessLayer.Abstract
 {
-	public interface ICargoCompanyDal : IGenericDal<CargoCompany>
-	{
+    public interface ICargoCompanyDal : IGenericDal<CargoCompany>
+    {
 
-	}
+    }
 }

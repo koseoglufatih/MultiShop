@@ -2,7 +2,7 @@
 
 namespace MultiShop.Cargo.BusinessLayer.Abstract
 {
-	public interface ICargoCustomerService : IGenericService<CargoCustomer>
-	{
-	}
+    public interface ICargoCustomerService : IGenericService<CargoCustomer>
+    {
+    }
 }

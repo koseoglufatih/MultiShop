@@ -6,16 +6,16 @@ using System.Net.Http.Headers;
 
 namespace MultiShop.WebUI.ViewComponents.LayoutViewComponents
 {
-	public class _NavbarUILayoutComponentPartial : ViewComponent
-	{
+    public class _NavbarUILayoutComponentPartial : ViewComponent
+    {
 
-		private readonly IHttpClientFactory _httpClientFactory;
-		public _NavbarUILayoutComponentPartial(IHttpClientFactory httpClientFactory)
-		{
-			_httpClientFactory = httpClientFactory;
-		}
-		public async Task<IViewComponentResult> InvokeAsync()
-		{
+        private readonly IHttpClientFactory _httpClientFactory;
+        public _NavbarUILayoutComponentPartial(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
             string token = "";
             using (var HttpClient = new HttpClient())
             {
@@ -56,9 +56,9 @@ namespace MultiShop.WebUI.ViewComponents.LayoutViewComponents
             return View();
 
 
-           
-		}
 
-	}
+        }
+
+    }
 }
 

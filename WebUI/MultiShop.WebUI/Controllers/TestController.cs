@@ -6,20 +6,20 @@ using System.Net.Http.Headers;
 
 namespace MultiShop.WebUI.Controllers
 {
-	public class TestController : Controller
-	{
-		private readonly IHttpClientFactory _httpClientFactory;
+    public class TestController : Controller
+    {
+        private readonly IHttpClientFactory _httpClientFactory;
 
-		public TestController(IHttpClientFactory httpClientFactory)
-		{
-			_httpClientFactory = httpClientFactory;
-		}
+        public TestController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
 
 
-		public async Task<IActionResult> Index()
-		{
+        public async Task<IActionResult> Index()
+        {
 
-            string token="";
+            string token = "";
             using (var HttpClient = new HttpClient())
             {
                 var request = new HttpRequestMessage
@@ -47,16 +47,16 @@ namespace MultiShop.WebUI.Controllers
 
 
             var client = _httpClientFactory.CreateClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-			var responseMessage = await client.GetAsync("https://localhost:7236/api/Categories");
-			if (responseMessage.IsSuccessStatusCode)
-			{
-				var jsonData = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
-				return View(values);
-			}
-			return View();
-		}
-	}
+            var responseMessage = await client.GetAsync("https://localhost:7236/api/Categories");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+    }
 }

@@ -5,36 +5,36 @@ using System.Text;
 
 namespace MultiShop.WebUI.Controllers
 {
-	public class RegisterController : Controller
-	{
-		private readonly IHttpClientFactory _httpClientFactory;
+    public class RegisterController : Controller
+    {
+        private readonly IHttpClientFactory _httpClientFactory;
 
-		public RegisterController(IHttpClientFactory httpClientFactory)
-		{
-			_httpClientFactory = httpClientFactory;
-		}
+        public RegisterController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
 
-		[HttpGet]
-		public IActionResult Index()
-		{
-			return View();
-		}
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View();
+        }
 
-		[HttpPost]
-		public async Task<IActionResult> Index(CreateRegisterDto createRegisterDto)
-		{
-			if (createRegisterDto.Password == createRegisterDto.ConfirmPassword)
-			{
-				var client = _httpClientFactory.CreateClient();
-				var jsonData = JsonConvert.SerializeObject(createRegisterDto);
-				StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-				var responseMessage = await client.PostAsync("https://localhost:44320/api/Registers", content);
-				if (responseMessage.IsSuccessStatusCode)
-				{
-					return RedirectToAction("Index", "Login");
-				}
-			}
-			return View();
-		}
-	}
+        [HttpPost]
+        public async Task<IActionResult> Index(CreateRegisterDto createRegisterDto)
+        {
+            if (createRegisterDto.Password == createRegisterDto.ConfirmPassword)
+            {
+                var client = _httpClientFactory.CreateClient();
+                var jsonData = JsonConvert.SerializeObject(createRegisterDto);
+                StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                var responseMessage = await client.PostAsync("https://localhost:44320/api/Registers", content);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+            }
+            return View();
+        }
+    }
 }

@@ -1,24 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.AboutDtos;
-using MultiShop.DtoLayer.CatalogDtos.CategoryDtos;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
 
 namespace MultiShop.WebUI.ViewComponents.UILayoutViewComponents
 {
-	public class _FooterUILayoutComponentPartial : ViewComponent
-	{
-		private readonly IHttpClientFactory _httpClientFactory;
+    public class _FooterUILayoutComponentPartial : ViewComponent
+    {
+        private readonly IHttpClientFactory _httpClientFactory;
 
-		public _FooterUILayoutComponentPartial(IHttpClientFactory httpClientFactory)
-		{
-			_httpClientFactory = httpClientFactory;
-		}
+        public _FooterUILayoutComponentPartial(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
 
 
-		public async Task<IViewComponentResult> InvokeAsync()
-		{
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
 
             string token = "";
             using (var HttpClient = new HttpClient())
@@ -58,8 +57,8 @@ namespace MultiShop.WebUI.ViewComponents.UILayoutViewComponents
                 return View(values);
             }
             return View();
-           
-		}
-	}
+
+        }
+    }
 }
 

@@ -2,12 +2,12 @@
 
 namespace MultiShop.WebUI.ViewComponents.ProductListViewComponents
 {
-	public class _ProductListSizeFilterComponentPartial : ViewComponent
+    public class _ProductListSizeFilterComponentPartial : ViewComponent
 
-	{
-		public IViewComponentResult Invoke()
-		{
-			return View();
-		}
-	}
+    {
+        public IViewComponentResult Invoke()
+        {
+            return View();
+        }
+    }
 }
