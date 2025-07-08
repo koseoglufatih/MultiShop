@@ -20,8 +20,8 @@ namespace MultiShop.IdentityServer.Controllers
             _userManager = userManager;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetUserInfo()
+        [HttpGet("GetUser")]
+        public async Task<IActionResult> GetUser()
         {
             var userClaim = User.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Sub);  //jsondaki id ye erişim sağlamak için
             var user = await _userManager.FindByIdAsync(userClaim.Value);
