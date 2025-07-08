@@ -51,6 +51,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.Basket", "Service
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{CB2444B7-4661-4C84-B1A4-2D3104D6DCED}"
 	ProjectSection(SolutionItems) = preProject
+		loginindex.txt = loginindex.txt
 		OcelotCodeExample.txt = OcelotCodeExample.txt
 	EndProjectSection
 EndProject
@@ -68,15 +69,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{C39955D7-0E7C-4B69-9C1F-445A801A6620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multishop.OcelotGateway", "ApiGateway\Multishop.OcelotGateway\Multishop.OcelotGateway.csproj", "{215F5A75-2545-4BD4-B8AE-B0B1E68F0D8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multishop.OcelotGateway", "ApiGateway\Multishop.OcelotGateway\Multishop.OcelotGateway.csproj", "{215F5A75-2545-4BD4-B8AE-B0B1E68F0D8E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment", "Payment", "{B2AB9735-E5EC-4018-A11C-B29509EAE345}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Payment", "Services\Payment\MultiShop.Payment\MultiShop.Payment.csproj", "{900316E4-9DE4-4C33-99CD-497CBED8A338}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.Payment", "Services\Payment\MultiShop.Payment\MultiShop.Payment.csproj", "{900316E4-9DE4-4C33-99CD-497CBED8A338}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{20BAB0FB-AE94-4EBA-AA43-ADF16BB0432A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Images", "Services\Images\MultiShop.Images\MultiShop.Images.csproj", "{7147F3E7-5A38-4A2F-93CF-04A8B037ABD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.Images", "Services\Images\MultiShop.Images\MultiShop.Images.csproj", "{7147F3E7-5A38-4A2F-93CF-04A8B037ABD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
