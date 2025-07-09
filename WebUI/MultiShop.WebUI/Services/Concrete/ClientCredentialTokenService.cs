@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 using IdentityModel.Client;
 
 namespace MultiShop.WebUI.Services.Concrete
-{
+{   
     public class ClientCredentialTokenService : IClientCredentialTokenService
     {
         private readonly ServiceApiSettings _serviceApiSettings;
@@ -22,14 +22,14 @@ namespace MultiShop.WebUI.Services.Concrete
             _clientSettings = clientSettings.Value;
         }
 
-        public async Task<string> GetToken()
+        public async Task<string> GetToken()   //deneme kodum !!
         {
-            var token1 = await _clientAccessTokenCache.GetAsync("multishoptoken");
-            if(token1 != null)
+            var token = await _clientAccessTokenCache.GetAsync("multishoptoken");
+            if (token != null)
             {
-                //return currentToken.AccessToken; // ??
-
+                return token;
             }
+
             var discoveryEndPoint = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
                 Address = _serviceApiSettings.IdentityServerUrl,
@@ -46,17 +46,53 @@ namespace MultiShop.WebUI.Services.Concrete
                 Address = discoveryEndPoint.TokenEndpoint
             };
 
-            var token2 = await _httpClient.RequestClientCredentialsTokenAsync(clientCredentialTokenRequest);
-            //await _clientAccessTokenCache.SetAsync("multishoptoken", token2.AccessToken, token2.ExpiresIn);
-            return token2.AccessToken;
+            var tokenResponse = await _httpClient.RequestClientCredentialsTokenAsync(clientCredentialTokenRequest);
 
+            if (tokenResponse.IsError)
+                throw new Exception("Token alınamadı: " + tokenResponse.Error);
+
+            await _clientAccessTokenCache.SetAsync("multishoptoken", tokenResponse.AccessToken, tokenResponse.ExpiresIn);
+
+            return tokenResponse.AccessToken;
         }
 
-     
+
+        //public async Task<string> GetToken() //kurstaki orjinal kod
+        //{
+        //    var token1 = await _clientAccessTokenCache.GetAsync("multishoptoken");
+        //    if(token1 != null)
+        //    {
+        //        //return currentToken.AccessToken; // ??
+
+        //    }
+        //    var discoveryEndPoint = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
+        //    {
+        //        Address = _serviceApiSettings.IdentityServerUrl,
+        //        Policy = new DiscoveryPolicy
+        //        {
+        //            RequireHttps = false
+        //        }
+        //    });
+
+        //    var clientCredentialTokenRequest = new ClientCredentialsTokenRequest
+        //    {
+        //        ClientId = _clientSettings.MultiShopVisitorClient.ClientId,
+        //        ClientSecret = _clientSettings.MultiShopVisitorClient.ClientSecret,
+        //        Address = discoveryEndPoint.TokenEndpoint
+        //    };
+
+        //    var token2 = await _httpClient.RequestClientCredentialsTokenAsync(clientCredentialTokenRequest);
+        //    //await _clientAccessTokenCache.SetAsync("multishoptoken", token2.AccessToken, token2.ExpiresIn);
+        //    return token2.AccessToken;
+
+        //}
+
+
     }
 
-    public interface IClientAccessTokenCache  // burası paket olmadığından tanımlı ? düzelt ?
+    public interface IClientAccessTokenCache  // burası paket olmadığından tanımlı ? düzelt ? kendim yazdım ?
     {
-        Task<string> GetAsync(string x);
+        Task<string> GetAsync(string key);
+        Task SetAsync(string key, string token, int expiresInSeconds);
     }
 }

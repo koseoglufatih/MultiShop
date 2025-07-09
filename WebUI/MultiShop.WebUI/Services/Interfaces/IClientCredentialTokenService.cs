@@ -6,6 +6,7 @@ namespace MultiShop.WebUI.Services.Interfaces
     {
         
         Task<string> GetToken();
+       
 
     }
 
