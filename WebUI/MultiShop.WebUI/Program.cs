@@ -39,6 +39,11 @@ builder.Services.AddSingleton<IClientAccessTokenCache, MemoryClientAccessTokenCa
 
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:44320"); // IdentityServer URL'niz
+});
+
 
 
 
@@ -64,11 +69,13 @@ builder.Services.AddHttpClient<IUserService, UserService>(opt =>
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 
-
+    
 builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
-}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+});
+
+//.AddHttpMessageHandler<ClientCredentialTokenHandler> token ??
 
 
 
