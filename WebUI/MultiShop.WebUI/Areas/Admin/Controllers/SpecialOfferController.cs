@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.SpecialOfferDtos;
+using MultiShop.WebUI.Services.CatalogServices.SpecialOfferServices;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -12,41 +13,26 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
     [Route("Admin/SpecialOffer")]
     public class SpecialOfferController : Controller
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly ISpecialOfferService _specialOfferService;
 
-        public SpecialOfferController(IHttpClientFactory httpClientFactory)
+        public SpecialOfferController(ISpecialOfferService specialOfferService)
         {
-            _httpClientFactory = httpClientFactory;
+            _specialOfferService = specialOfferService;
         }
+
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
-            ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Özel Teklifler";
-            ViewBag.v3 = "Özel Teklif ve Günün İndirimi Listesi";
-            ViewBag.v0 = "Özel Teklifler İşlemleri";
-
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7236/api/SpecialOffers");
-
-            if (responseMessage.IsSuccessStatusCode)
-            {
-
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultSpecialOfferDto>>(jsonData);
-                return View(values);
-            }
-            return View();
+            SpecialOfferViewBagList();
+            var values = await _specialOfferService.GetAllSpecialOfferAsync();
+            return View(values);
         }
 
         [HttpGet]
         [Route("CreateSpecialOffer")]
         public IActionResult CreateSpecialOffer()
         {
-            ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Özel Teklifler";
-            ViewBag.v3 = "Özel Teklif ve Günün İndirimi Listesi";
-            ViewBag.v0 = "Özel Teklifler İşlemleri";
+            SpecialOfferViewBagList();
 
             return View();
         }
@@ -55,15 +41,8 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("CreateSpecialOffer")]
         public async Task<IActionResult> CreateSpecialOffer([FromBody] CreateSpecialOfferDto createSpecialOfferDto)
         {
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createSpecialOfferDto);
-            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7236/api/SpecialOffers", content);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "SpecialOffer", new { area = "Admin" });
-            }
-            return View();
+            await _specialOfferService.CreateSpecialOfferAsync(createSpecialOfferDto);
+            return RedirectToAction("Index", "SpecialOffer", new { area = "Admin" });
         }
 
         [Route("DeleteSpecialOffer/{id}")]
@@ -82,10 +61,8 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateSpecialOffer(string id)
         {
-            ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Özel Teklifler";
-            ViewBag.v3 = "Özel Teklif ve Günün İndirimi Listesi";
-            ViewBag.v0 = "Özel Teklifler İşlemleri";
+
+            SpecialOfferViewBagList();
 
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7236/api/SpecialOffers/{id}");
@@ -111,6 +88,14 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
                 return RedirectToAction("Index", "SpecialOffer", new { area = "Admin" });
             }
             return View();
+        }
+
+        void SpecialOfferViewBagList()
+        {
+            ViewBag.v1 = "Ana Sayfa";
+            ViewBag.v2 = "Özel Teklifler";
+            ViewBag.v3 = "Özel Teklif ve Günün İndirimi Listesi";
+            ViewBag.v0 = "Özel Teklifler İşlemleri";
         }
 
     }

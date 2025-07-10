@@ -1,14 +1,12 @@
-﻿using MultiShop.WebUI.Settings;
-
-namespace MultiShop.WebUI.Services.Interfaces
+﻿namespace MultiShop.WebUI.Services.Interfaces
 {
     public interface IClientCredentialTokenService
     {
-        
+
         Task<string> GetToken();
-       
+
 
     }
 
-   
+
 }

@@ -40,13 +40,13 @@ namespace MultiShop.WebUI.Services.CatalogServices.CategoryServices
         public async Task<UpdateCategoryDto> GetByIdCategoryAsync(string id)
         {
             var responseMessage = await _httpClient.GetAsync("categories/" + id);
-            var values =await responseMessage.Content.ReadFromJsonAsync<UpdateCategoryDto>();
+            var values = await responseMessage.Content.ReadFromJsonAsync<UpdateCategoryDto>();
             return values;
         }
 
         public async Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto)
         {
-            await _httpClient.PutAsJsonAsync<UpdateCategoryDto>("categories",updateCategoryDto);
+            await _httpClient.PutAsJsonAsync<UpdateCategoryDto>("categories", updateCategoryDto);
 
         }
     }

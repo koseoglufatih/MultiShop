@@ -1,12 +1,10 @@
-﻿using MultiShop.WebUI.Services.Interfaces;
-using MultiShop.WebUI.Settings;
-using IdentityModel.AspNetCore.OAuth2Introspection;
-using Microsoft.CodeAnalysis.Classification;
+﻿using IdentityModel.Client;
 using Microsoft.Extensions.Options;
-using IdentityModel.Client;
+using MultiShop.WebUI.Services.Interfaces;
+using MultiShop.WebUI.Settings;
 
 namespace MultiShop.WebUI.Services.Concrete
-{   
+{
     public class ClientCredentialTokenService : IClientCredentialTokenService
     {
         private readonly ServiceApiSettings _serviceApiSettings;

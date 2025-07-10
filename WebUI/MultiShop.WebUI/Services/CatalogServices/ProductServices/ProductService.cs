@@ -19,7 +19,7 @@ namespace MultiShop.WebUI.Services.CatalogServices.ProductServices
 
         public async Task DeleteProductAsync(string id)
         {
-             await _httpClient.DeleteAsync("products?id=" + id);
+            await _httpClient.DeleteAsync("products?id=" + id);
         }
 
         public async Task<List<ResultProductDto>> GetAllProductAsync()

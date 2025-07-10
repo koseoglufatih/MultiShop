@@ -13,18 +13,18 @@ namespace MultiShop.WebUI.Services.CatalogServices.SpecialOfferServices
         }
         public async Task CreateSpecialOfferAsync(CreateSpecialOfferDto createSpecialOfferDto)
         {
-            await _httpClient.PostAsJsonAsync<CreateSpecialOfferDto>("specialoffer", createSpecialOfferDto);
+            await _httpClient.PostAsJsonAsync<CreateSpecialOfferDto>("specialoffers", createSpecialOfferDto);
 
         }
 
         public async Task DeleteSpecialOfferAsync(string id)
         {
-            await _httpClient.DeleteAsync("specialoffer?id=" + id);
+            await _httpClient.DeleteAsync("specialoffers?id=" + id);
         }
 
         public async Task<List<ResultSpecialOfferDto>> GetAllSpecialOfferAsync()
         {
-            var responseMessage = await _httpClient.GetAsync("specialoffer");
+            var responseMessage = await _httpClient.GetAsync("specialoffers");
             responseMessage.EnsureSuccessStatusCode();
 
             var values = await responseMessage.Content.ReadAsStringAsync();
@@ -35,14 +35,14 @@ namespace MultiShop.WebUI.Services.CatalogServices.SpecialOfferServices
 
         public async Task<UpdateSpecialOfferDto> GetByIdSpecialOfferAsync(string id)
         {
-            var responseMessage = await _httpClient.GetAsync("specialoffer/" + id);
+            var responseMessage = await _httpClient.GetAsync("specialoffers/" + id);
             var values = await responseMessage.Content.ReadFromJsonAsync<UpdateSpecialOfferDto>();
             return values;
         }
 
         public async Task UpdateSpecialOfferAsync(UpdateSpecialOfferDto updateSpecialOfferDto)
         {
-            await _httpClient.PutAsJsonAsync<UpdateSpecialOfferDto>("specialoffer", updateSpecialOfferDto);
+            await _httpClient.PutAsJsonAsync<UpdateSpecialOfferDto>("specialoffers", updateSpecialOfferDto);
 
         }
     }
