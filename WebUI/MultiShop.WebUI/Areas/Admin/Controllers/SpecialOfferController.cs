@@ -48,13 +48,8 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("DeleteSpecialOffer/{id}")]
         public async Task<IActionResult> DeleteSpecialOffer(string id)
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:7236/api/SpecialOffers?id={id}");
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "SpecialOffer", new { area = "Admin" });
-            }
-            return View();
+            await _specialOfferService.DeleteSpecialOfferAsync(id);
+            return RedirectToAction("Index", "SpecialOffer", new { area = "Admin" });
         }
 
         [Route("UpdateSpecialOffer/{id}")]
@@ -63,32 +58,19 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         {
 
             SpecialOfferViewBagList();
-
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:7236/api/SpecialOffers/{id}");
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateSpecialOfferDto>(jsonData);
-                return View(values);
-            }
-            return View();
+            var values = await _specialOfferService.GetByIdSpecialOfferAsync(id);
+            return View(values);
         }
 
         [Route("UpdateSpecialOffer/{id}")]
         [HttpPost]
         public async Task<IActionResult> UpdateSpecialOffer(UpdateSpecialOfferDto updateSpecialOfferDto)
         {
-            var client = _httpClientFactory.CreateClient();
-            var JsonData = JsonConvert.SerializeObject(updateSpecialOfferDto);
-            StringContent stringContent = new StringContent(JsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync($"https://localhost:7236/api/SpecialOffers/", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "SpecialOffer", new { area = "Admin" });
-            }
-            return View();
+            await _specialOfferService.UpdateSpecialOfferAsync(updateSpecialOfferDto);
+            return RedirectToAction("Index", "SpecialOffer", new { area = "Admin" });
         }
+
+
 
         void SpecialOfferViewBagList()
         {

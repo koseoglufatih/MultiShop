@@ -4,6 +4,7 @@ using MultiShop.WebUI.Handlers;
 using MultiShop.WebUI.Services;
 using MultiShop.WebUI.Services.CatalogServices.CategoryServices;
 using MultiShop.WebUI.Services.CatalogServices.ProductServices;
+using MultiShop.WebUI.Services.CatalogServices.SpecialOfferServices;
 using MultiShop.WebUI.Services.Concrete;
 using MultiShop.WebUI.Services.Interfaces;
 using MultiShop.WebUI.Settings;
@@ -75,6 +76,11 @@ builder.Services.AddHttpClient<IProductService, ProductService>(opt =>
 });
 
 builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
+});
+
+builder.Services.AddHttpClient<ISpecialOfferService, SpecialOfferService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
 });
