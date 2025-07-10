@@ -33,10 +33,10 @@ namespace MultiShop.WebUI.Services.CatalogServices.FeatureServices
 
         }
 
-        public async Task<GetByIdFeatureDto> GetByIdFeatureAsync(string id)
+        public async Task<UpdateFeatureDto> GetByIdFeatureAsync(string id)
         {
             var responseMessage = await _httpClient.GetAsync("features/" + id);
-            var values = await responseMessage.Content.ReadFromJsonAsync<GetByIdFeatureDto>();
+            var values = await responseMessage.Content.ReadFromJsonAsync<UpdateFeatureDto>();
             return values;
         }
 

@@ -8,6 +8,6 @@ namespace MultiShop.WebUI.Services.CatalogServices.FeatureServices
         Task CreateFeatureAsync(CreateFeatureDto createFeatureDto);
         Task UpdateFeatureAsync(UpdateFeatureDto updateFeatureDto);
         Task DeleteFeatureAsync(string id);
-        Task<GetByIdFeatureDto> GetByIdFeatureAsync(string id);
+        Task<UpdateFeatureDto> GetByIdFeatureAsync(string id);
     }
 }
