@@ -19,15 +19,12 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             _categoryService = categoryService;
         }
 
-
-
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
             CategoryViewBagList();
             var values = await _categoryService.GetAllCategoryAsync();
             return View(values);
-
         }
 
 
