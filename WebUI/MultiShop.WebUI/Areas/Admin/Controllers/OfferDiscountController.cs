@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.OfferDiscountDtos;
 using MultiShop.WebUI.Services.CatalogServices.OfferDiscountServices;
-using Newtonsoft.Json;
-using System.Text;
 
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
@@ -39,7 +37,6 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("CreateOfferDiscount")]
         public async Task<IActionResult> CreateOfferDiscount(CreateOfferDiscountDto createOfferDiscountDto)
         {
-
             await _offerDiscountService.CreateOfferDiscountAsync(createOfferDiscountDto);
             return RedirectToAction("Index", "OfferDiscount", new { area = "Admin" });
         }

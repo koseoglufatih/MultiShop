@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.FeatureDtos;
 using MultiShop.WebUI.Services.CatalogServices.FeatureServices;
-using Newtonsoft.Json;
-using System.Text;
 
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
@@ -12,7 +10,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
     [Route("Admin/Feature")]
     public class FeatureController : Controller
     {
-       
+
         private readonly IFeatureService _featureService;
 
         public FeatureController(IFeatureService featureService)

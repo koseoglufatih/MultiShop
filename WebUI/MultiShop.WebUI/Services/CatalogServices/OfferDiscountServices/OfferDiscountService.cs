@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MultiShop.WebUI.Services.CatalogServices.OfferDiscountServices
 {
-    public class OfferDiscountService :IOfferDiscountService
+    public class OfferDiscountService : IOfferDiscountService
     {
         private readonly HttpClient _httpClient;
 
@@ -12,8 +12,8 @@ namespace MultiShop.WebUI.Services.CatalogServices.OfferDiscountServices
             _httpClient = httpClient;
         }
         public async Task CreateOfferDiscountAsync(CreateOfferDiscountDto createOfferDiscountDto)
-        { 
-        
+        {
+
             await _httpClient.PostAsJsonAsync<CreateOfferDiscountDto>("offerdiscounts", createOfferDiscountDto);
 
         }

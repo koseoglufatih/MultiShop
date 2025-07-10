@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MultiShop.WebUI.Services.CatalogServices.FeatureSliderServices
 {
-    public class FeatureSliderService :IFeatureSliderService
+    public class FeatureSliderService : IFeatureSliderService
     {
         private readonly HttpClient _httpClient;
 
@@ -49,7 +49,7 @@ namespace MultiShop.WebUI.Services.CatalogServices.FeatureSliderServices
             return values;
         }
 
-    
+
 
         public async Task UpdateFeatureSliderAsync(UpdateFeatureSliderDto updateFeatureSliderDto)
         {

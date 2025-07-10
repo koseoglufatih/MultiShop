@@ -1,5 +1,4 @@
-﻿using MultiShop.DtoLayer.CatalogDtos.FeatureDtos;
-using MultiShop.DtoLayer.CatalogDtos.FeatureSliderDtos;
+﻿using MultiShop.DtoLayer.CatalogDtos.FeatureSliderDtos;
 
 namespace MultiShop.WebUI.Services.CatalogServices.FeatureSliderServices
 {
