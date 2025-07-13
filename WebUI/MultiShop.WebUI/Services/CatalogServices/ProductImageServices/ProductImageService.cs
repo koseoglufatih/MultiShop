@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MultiShop.WebUI.Services.CatalogServices.ProductImageServices
 {
-    public class ProductImageService :IProductImageService
+    public class ProductImageService : IProductImageService
     {
         private readonly HttpClient _httpClient;
 
@@ -33,17 +33,30 @@ namespace MultiShop.WebUI.Services.CatalogServices.ProductImageServices
 
         }
 
-        public async Task<UpdateProductImageDto> GetByIdCategoryAsync(string id)
+        public async Task<GetByIdProductImageDto> GetByIdProductImageAsync(string id)
         {
             var responseMessage = await _httpClient.GetAsync("productimages/" + id);
-            var values = await responseMessage.Content.ReadFromJsonAsync<UpdateProductImageDto>();
+            var values = await responseMessage.Content.ReadFromJsonAsync<GetByIdProductImageDto>();
             return values;
         }
+
+     
+
 
         public async Task UpdateProductImageAsync(UpdateProductImageDto updateProductImageDto)
         {
             await _httpClient.PutAsJsonAsync<UpdateProductImageDto>("productimages", updateProductImageDto);
 
         }
+
+      
+
+        public async Task<GetByIdProductImageDto> GetByProductIdImageAsync(string id)
+        {
+            var responseMessage = await _httpClient.GetAsync("productimages/ProductImagesByProductId/" + id);
+            var values = await responseMessage.Content.ReadFromJsonAsync<GetByIdProductImageDto>();
+            return values;
+        }
+
     }
 }
