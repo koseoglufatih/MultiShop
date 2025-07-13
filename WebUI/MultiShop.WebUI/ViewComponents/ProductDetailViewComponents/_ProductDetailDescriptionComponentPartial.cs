@@ -15,6 +15,12 @@ namespace MultiShop.WebUI.ViewComponents.ProductDetailViewComponents
         public async Task<IViewComponentResult> InvokeAsync(string id)
         {
 
+
+
+
+
+
+
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7236/api/ProductDetails/GetProductDetailByProductId?id=" + id);
             if (responseMessage.IsSuccessStatusCode)

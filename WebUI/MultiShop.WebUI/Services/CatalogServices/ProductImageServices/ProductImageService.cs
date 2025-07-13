@@ -21,7 +21,6 @@ namespace MultiShop.WebUI.Services.CatalogServices.ProductImageServices
         {
             await _httpClient.DeleteAsync("productimages?id=" + id);
         }
-
         public async Task<List<ResultProductImageDto>> GetAllProductImageAsync()
         {
             var responseMessage = await _httpClient.GetAsync("productimages");
@@ -39,17 +38,11 @@ namespace MultiShop.WebUI.Services.CatalogServices.ProductImageServices
             var values = await responseMessage.Content.ReadFromJsonAsync<GetByIdProductImageDto>();
             return values;
         }
-
-     
-
-
         public async Task UpdateProductImageAsync(UpdateProductImageDto updateProductImageDto)
         {
             await _httpClient.PutAsJsonAsync<UpdateProductImageDto>("productimages", updateProductImageDto);
 
         }
-
-      
 
         public async Task<GetByIdProductImageDto> GetByProductIdImageAsync(string id)
         {
