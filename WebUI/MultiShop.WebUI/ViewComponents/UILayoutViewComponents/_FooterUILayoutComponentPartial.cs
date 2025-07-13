@@ -17,7 +17,7 @@ namespace MultiShop.WebUI.ViewComponents.UILayoutViewComponents
             var values = await _aboutService.GetAllAboutAsync();
             return View(values);
 
-         
+
         }
     }
 }

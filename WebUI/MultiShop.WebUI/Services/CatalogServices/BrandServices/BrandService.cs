@@ -1,10 +1,9 @@
 ﻿using MultiShop.DtoLayer.CatalogDtos.BrandDtos;
 using Newtonsoft.Json;
-using System.Net.Http.Json;
 
 namespace MultiShop.WebUI.Services.CatalogServices.BrandServices
 {
-    public class BrandService :IBrandService
+    public class BrandService : IBrandService
     {
         private readonly HttpClient _httpClient;
 

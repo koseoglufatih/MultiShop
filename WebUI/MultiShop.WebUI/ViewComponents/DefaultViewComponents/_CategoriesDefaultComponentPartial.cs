@@ -5,7 +5,7 @@ namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
 {
     public class _CategoriesDefaultComponentPartial : ViewComponent
     {
-        private readonly  ICategoryService _categoryService;
+        private readonly ICategoryService _categoryService;
 
         public _CategoriesDefaultComponentPartial(ICategoryService categoryService)
         {

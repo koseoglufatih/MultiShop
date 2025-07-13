@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.BrandDtos;
 using MultiShop.WebUI.Services.CatalogServices.BrandServices;
-using Newtonsoft.Json;
-using System.Text;
 
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
@@ -69,7 +67,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             await _brandService.UpdateBrandAsync(updateBrandDto);
             return RedirectToAction("Index", "Brand", new { area = "Admin" });
         }
-    
+
 
         void BrandViewBagList()
         {

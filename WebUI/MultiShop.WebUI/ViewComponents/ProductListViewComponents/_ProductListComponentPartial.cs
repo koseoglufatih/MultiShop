@@ -19,7 +19,7 @@ namespace MultiShop.WebUI.ViewComponents.ProductListViewComponents
             var values = await _productService.GetProductsWithCategoryByCategoryIdAynsc(id);
             return View(values);
 
-           
+
         }
     }
 }

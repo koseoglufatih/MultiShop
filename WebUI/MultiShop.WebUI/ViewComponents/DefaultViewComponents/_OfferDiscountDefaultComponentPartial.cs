@@ -6,7 +6,7 @@ namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
     public class _OfferDiscountDefaultComponentPartial : ViewComponent
 
     {
-        private readonly IOfferDiscountService  _offerDiscountService;
+        private readonly IOfferDiscountService _offerDiscountService;
 
         public _OfferDiscountDefaultComponentPartial(IOfferDiscountService offerDiscountService)
         {

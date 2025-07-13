@@ -1,10 +1,9 @@
 ﻿using MultiShop.DtoLayer.CatalogDtos.ProductDetailDto;
 using Newtonsoft.Json;
-using System.Net.Http.Json;
 
 namespace MultiShop.WebUI.Services.CatalogServices.ProductDetailServices
 {
-    public class ProductDetailService :IProductDetailService
+    public class ProductDetailService : IProductDetailService
     {
 
         private readonly HttpClient _httpClient;
@@ -35,17 +34,25 @@ namespace MultiShop.WebUI.Services.CatalogServices.ProductDetailServices
 
         }
 
-        public async Task<UpdateProductDetailDto> GetByIdProductDetailAsync(string id)
+        public async Task<GetByIdProductDetailDto> GetByIdProductDetailAsync(string id)
         {
             var responseMessage = await _httpClient.GetAsync("productdetails/" + id);
-            var values = await responseMessage.Content.ReadFromJsonAsync<UpdateProductDetailDto>();
+            var values = await responseMessage.Content.ReadFromJsonAsync<GetByIdProductDetailDto>();
             return values;
         }
 
-        public async Task UpdateProductDetailAsync(UpdateProductDetailDto  updateProductDetailDto)
+        public async Task<GetByIdProductDetailDto> GetByProductIdProductDetailAsync(string id)
+        {
+            var responseMessage = await _httpClient.GetAsync("productdetails/GetProductDetailByProductId" + id);
+            var values = await responseMessage.Content.ReadFromJsonAsync<GetByIdProductDetailDto>();
+            return values;
+        }
+
+        public async Task UpdateProductDetailAsync(UpdateProductDetailDto updateProductDetailDto)
         {
             await _httpClient.PutAsJsonAsync<UpdateProductDetailDto>("productdetails", updateProductDetailDto);
 
         }
+
     }
 }
