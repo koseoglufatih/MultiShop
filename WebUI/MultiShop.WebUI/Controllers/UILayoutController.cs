@@ -6,6 +6,7 @@ namespace MultiShop.WebUI.Controllers
     {
         public IActionResult _UILayout()
         {
+
             return View();
         }
     }
