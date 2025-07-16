@@ -17,6 +17,10 @@ namespace MultiShop.WebUI.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+
+            ViewBag.directory1 = "Multishop";
+            ViewBag.directory2 = "İletişim";
+            ViewBag.directory3 = "Mesaj Gönder";
             return View();
         }
 
