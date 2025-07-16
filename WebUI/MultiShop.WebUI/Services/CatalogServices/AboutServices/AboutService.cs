@@ -25,9 +25,9 @@ namespace MultiShop.WebUI.Services.CatalogServices.AboutServices
         public async Task<List<ResultAboutDto>> GetAllAboutAsync()
         {
             var responseMessage = await _httpClient.GetAsync("abouts");
-            responseMessage.EnsureSuccessStatusCode();
-            var values = await responseMessage.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<ResultAboutDto>>(values);
+            var jsondata = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultAboutDto>>(jsondata);
+            return values;
         }
 
         public async Task<UpdateAboutDto> GetByIdAboutAsync(string id)
