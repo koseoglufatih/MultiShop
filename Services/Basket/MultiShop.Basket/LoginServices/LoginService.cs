@@ -13,15 +13,15 @@
         {
             get
             {
-               
-                    var userIdClaim = httpContextAccessor?.HttpContext?.User?.FindFirst("sub");
-                    if (userIdClaim == null)
-                    {
-                        return "1";
-                    }
 
-                    return userIdClaim.Value;
+                var userIdClaim = httpContextAccessor?.HttpContext?.User?.FindFirst("sub");
+                if (userIdClaim == null)
+                {
+                    return "1";
                 }
+
+                return userIdClaim.Value;
+            }
         }
     }
 }

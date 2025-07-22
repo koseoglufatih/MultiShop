@@ -8,7 +8,7 @@ namespace MultiShop.WebUI.Services.CommentServices
         private readonly HttpClient _httpClient;
 
         public CommentService(HttpClient httpClient)
-           {
+        {
             _httpClient = httpClient;
         }
 

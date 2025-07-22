@@ -1,5 +1,4 @@
-﻿using MultiShop.DtoLayer.CatalogDtos.AboutDtos;
-using MultiShop.DtoLayer.CommentDtos;
+﻿using MultiShop.DtoLayer.CommentDtos;
 
 namespace MultiShop.WebUI.Services.CommentServices
 {
