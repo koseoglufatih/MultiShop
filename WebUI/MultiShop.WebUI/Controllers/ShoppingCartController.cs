@@ -24,14 +24,13 @@ namespace MultiShop.WebUI.Controllers
             ViewBag.directory1 = "Ana Sayfa";
             ViewBag.directory2 = "Ürünler";
             ViewBag.directory3 = "Sepetim";
-            var basket = await _basketService.GetBasket(); // Bu eksik
-            return View(basket);
+            return View();
 
         }
 
-        public async Task<IActionResult> AddBasketItem(string productId)
+        public async Task<IActionResult> AddBasketItem(string id)
         {
-            var values = await _productService.GetByIdProductAsync(productId);
+            var values = await _productService.GetByIdProductAsync(id);
             var items = new BasketItemDto
             {
                 ProductId = values.ProductID,
@@ -42,9 +41,9 @@ namespace MultiShop.WebUI.Controllers
             await _basketService.AddBasketItem(items);
             return RedirectToAction("Index");
         }
-        public async Task<IActionResult> RemoveBasketItem(string productId)
+        public async Task<IActionResult> RemoveBasketItem(string id)
         {
-            await _basketService.RemoveBasketItem(productId);
+            await _basketService.RemoveBasketItem(id);
             return RedirectToAction("Index");
         }
     }

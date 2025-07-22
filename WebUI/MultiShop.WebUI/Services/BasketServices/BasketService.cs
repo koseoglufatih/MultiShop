@@ -1,7 +1,9 @@
-﻿using MultiShop.DtoLayer.BasketDtos;
+﻿using Microsoft.AspNetCore.Authorization;
+using MultiShop.DtoLayer.BasketDtos;
 
 namespace MultiShop.WebUI.Services.BasketServices
 {
+    [AllowAnonymous]
     public class BasketService : IBasketService
     {
         private readonly HttpClient _httpClient;
