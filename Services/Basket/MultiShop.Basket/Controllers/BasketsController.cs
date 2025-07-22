@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MultiShop.Basket.Dtos;
 using MultiShop.Basket.LoginServices;
 using MultiShop.Basket.Services;
@@ -7,6 +8,7 @@ namespace MultiShop.Basket.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class BasketsController : ControllerBase
     {
         private readonly IBasketService _basketService;
