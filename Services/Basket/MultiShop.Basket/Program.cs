@@ -27,8 +27,12 @@ builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("Redi
 builder.Services.AddSingleton<RedisService>(sp =>
 {
     var redisSettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
-    var redis = new RedisService(redisSettings.Host, redisSettings.Port);
-    redis.Connect();
+    //var redis = new RedisService(redisSettings.Host, redisSettings.Port);
+    //redis.Connect();
+    //return redis;
+
+    var redis = new RedisService("localhost", 6379);
+    redis.Connect(); // uygulama baþlarken baðlan
     return redis;
 });
 

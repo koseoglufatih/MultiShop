@@ -12,8 +12,8 @@ namespace MultiShop.Basket.Settings
             _host = host;
             _port = port;
         }
-        public void Connect() => _connectionMultiplexer = ConnectionMultiplexer.Connect($"{_host}:{_port}");
-        public IDatabase GetDb(int db = 1) => _connectionMultiplexer.GetDatabase(0);
+        public void Connect() => _connectionMultiplexer = ConnectionMultiplexer.Connect($"{_host}:{_port},abortConnect=false");
+        public IDatabase GetDb(int db = 1) => _connectionMultiplexer.GetDatabase(db);
 
     }
 }

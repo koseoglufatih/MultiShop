@@ -9,6 +9,19 @@
             httpContextAccessor = contextAccessor;
         }
 
-        public string GetUserId => httpContextAccessor.HttpContext.User.FindFirst("sub").Value;
+        public string GetUserId
+        {
+            get
+            {
+               
+                    var userIdClaim = httpContextAccessor?.HttpContext?.User?.FindFirst("sub");
+                    if (userIdClaim == null)
+                    {
+                        return "1";
+                    }
+
+                    return userIdClaim.Value;
+                }
+        }
     }
 }
