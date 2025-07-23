@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.BasketDtos;
 using MultiShop.WebUI.Services.BasketServices;
 using MultiShop.WebUI.Services.CatalogServices.ProductServices;
+using MultiShop.WebUI.Services.DiscountServices;
 
 namespace MultiShop.WebUI.Controllers
 {
@@ -12,7 +13,6 @@ namespace MultiShop.WebUI.Controllers
 
         private readonly IProductService _productService;
         private readonly IBasketService _basketService;
-
         public ShoppingCartController(IProductService productService, IBasketService basketService)
         {
             _productService = productService;
@@ -24,6 +24,8 @@ namespace MultiShop.WebUI.Controllers
             ViewBag.directory1 = "Ana Sayfa";
             ViewBag.directory2 = "Ürünler";
             ViewBag.directory3 = "Sepetim";
+            var values = await _basketService.GetBasket();
+            ViewBag.total = values.TotalPrice;
             return View();
 
         }

@@ -36,39 +36,39 @@ namespace MultiShop.WebUI.Services.BasketServices
             throw new NotImplementedException();
         }
 
-       
-            public async Task<BasketTotalDto> GetBasket()
+
+        public async Task<BasketTotalDto> GetBasket()
+        {
+            var responseMessage = await _httpClient.GetAsync("baskets");
+
+            if (!responseMessage.IsSuccessStatusCode)
             {
-                var responseMessage = await _httpClient.GetAsync("baskets");
 
-                if (!responseMessage.IsSuccessStatusCode)
+                return new BasketTotalDto
                 {
-                  
-                    return new BasketTotalDto
-                    {
-                        BasketItems = new List<BasketItemDto>()
-                    };
-                }
-
-                var content = await responseMessage.Content.ReadAsStringAsync();
-
-                if (string.IsNullOrWhiteSpace(content))
-                {
-                    return new BasketTotalDto
-                    {
-                        BasketItems = new List<BasketItemDto>()
-                    };
-                }
-
-                var values = System.Text.Json.JsonSerializer.Deserialize<BasketTotalDto>(content, new System.Text.Json.JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
-
-                return values;
+                    BasketItems = new List<BasketItemDto>()
+                };
             }
 
-        
+            var content = await responseMessage.Content.ReadAsStringAsync();
+
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                return new BasketTotalDto
+                {
+                    BasketItems = new List<BasketItemDto>()
+                };
+            }
+
+            var values = System.Text.Json.JsonSerializer.Deserialize<BasketTotalDto>(content, new System.Text.Json.JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+            return values;
+        }
+
+
 
         public async Task<bool> RemoveBasketItem(string productId)
         {
