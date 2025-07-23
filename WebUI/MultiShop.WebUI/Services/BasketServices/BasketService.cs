@@ -36,12 +36,39 @@ namespace MultiShop.WebUI.Services.BasketServices
             throw new NotImplementedException();
         }
 
-        public async Task<BasketTotalDto> GetBasket()
-        {
-            var responseMessage = await _httpClient.GetAsync("baskets");
-            var values = await responseMessage.Content.ReadFromJsonAsync<BasketTotalDto>();
-            return values;
-        }
+       
+            public async Task<BasketTotalDto> GetBasket()
+            {
+                var responseMessage = await _httpClient.GetAsync("baskets");
+
+                if (!responseMessage.IsSuccessStatusCode)
+                {
+                  
+                    return new BasketTotalDto
+                    {
+                        BasketItems = new List<BasketItemDto>()
+                    };
+                }
+
+                var content = await responseMessage.Content.ReadAsStringAsync();
+
+                if (string.IsNullOrWhiteSpace(content))
+                {
+                    return new BasketTotalDto
+                    {
+                        BasketItems = new List<BasketItemDto>()
+                    };
+                }
+
+                var values = System.Text.Json.JsonSerializer.Deserialize<BasketTotalDto>(content, new System.Text.Json.JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+                return values;
+            }
+
+        
 
         public async Task<bool> RemoveBasketItem(string productId)
         {
