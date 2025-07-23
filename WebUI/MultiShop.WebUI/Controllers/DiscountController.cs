@@ -12,12 +12,19 @@ namespace MultiShop.WebUI.Controllers
             _discountService = discountService;
         }
 
+        [HttpGet]
+        public PartialViewResult ConfirmDiscountCoupon()
+        {
+            return PartialView();
+        }
+
         [HttpPost]
         public IActionResult ConfirmDiscountCoupon(string code)
         {
-            code = "BONUS20";
             var values = _discountService.GetDiscountCode(code);
             return View(values);
         }
+
+
     }
 }
