@@ -29,10 +29,10 @@ namespace MultiShop.WebUI.Controllers
             var values = await _discountService.GetDiscountCouponCountRate(code);
             var basketValues = await _basketService.GetBasket();
             var totalPriceWithTax = basketValues.TotalPrice + basketValues.TotalPrice / 100 * 10;
-            var totalNewPriceWithDiscount= totalPriceWithTax - (totalPriceWithTax/100*values);
-            ViewBag.totalNewPriceWithDiscount = totalNewPriceWithDiscount;
+            var totalNewPriceWithDiscount = totalPriceWithTax - (totalPriceWithTax / 100 * values);
+            //ViewBag.totalNewPriceWithDiscount = totalNewPriceWithDiscount;
 
-            return RedirectToAction("Index", "ShoppingCart", new { code = code , discountRate = values });
+            return RedirectToAction("Index", "ShoppingCart", new { code = code, discountRate = values, totalNewPriceWithDiscount= totalNewPriceWithDiscount });
 
 
         }
