@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc;
 using MultiShop.WebUI.Services.BasketServices;
 using MultiShop.WebUI.Services.DiscountServices;
 
@@ -32,7 +31,7 @@ namespace MultiShop.WebUI.Controllers
             var totalNewPriceWithDiscount = totalPriceWithTax - (totalPriceWithTax / 100 * values);
             //ViewBag.totalNewPriceWithDiscount = totalNewPriceWithDiscount;
 
-            return RedirectToAction("Index", "ShoppingCart", new { code = code, discountRate = values, totalNewPriceWithDiscount= totalNewPriceWithDiscount });
+            return RedirectToAction("Index", "ShoppingCart", new { code = code, discountRate = values, totalNewPriceWithDiscount = totalNewPriceWithDiscount });
 
 
         }

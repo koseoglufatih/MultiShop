@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.BasketDtos;
 using MultiShop.WebUI.Services.BasketServices;
 using MultiShop.WebUI.Services.CatalogServices.ProductServices;
-using MultiShop.WebUI.Services.DiscountServices;
 
 namespace MultiShop.WebUI.Controllers
 {
@@ -19,7 +18,7 @@ namespace MultiShop.WebUI.Controllers
             _basketService = basketService;
         }
 
-        public async Task<IActionResult> Index(string code, int discountRate , decimal totalNewPriceWithDiscount)
+        public async Task<IActionResult> Index(string code, int discountRate, decimal totalNewPriceWithDiscount)
         {
             ViewBag.code = code;
             ViewBag.discountRate = discountRate;

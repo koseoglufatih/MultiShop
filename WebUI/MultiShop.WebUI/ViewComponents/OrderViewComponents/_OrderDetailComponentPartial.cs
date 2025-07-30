@@ -2,7 +2,7 @@
 
 namespace MultiShop.WebUI.ViewComponents.OrderViewComponents
 {
-    public class _OrderDetailComponentPartial :ViewComponent
+    public class _OrderDetailComponentPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

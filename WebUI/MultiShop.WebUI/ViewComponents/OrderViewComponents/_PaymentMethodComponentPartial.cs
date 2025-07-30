@@ -2,11 +2,12 @@
 
 namespace MultiShop.WebUI.ViewComponents.OrderViewComponents
 {
-    public class _PaymentMethodComponentPartial :ViewComponent
+    public class _PaymentMethodComponentPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
 
-        return View(); }
+            return View();
+        }
     }
 }

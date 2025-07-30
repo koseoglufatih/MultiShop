@@ -1,5 +1,4 @@
 ﻿using MultiShop.DtoLayer.DiscountDtos;
-using NuGet.Protocol;
 
 namespace MultiShop.WebUI.Services.DiscountServices
 {
@@ -22,7 +21,7 @@ namespace MultiShop.WebUI.Services.DiscountServices
 
         public async Task<int> GetDiscountCouponCountRate(string code)
         {
-            var responseMessage = await _httpClient.GetAsync("http://localhost:7276/api/Discounts/GetDiscountCouponCountRate?code="+code);
+            var responseMessage = await _httpClient.GetAsync("http://localhost:7276/api/Discounts/GetDiscountCouponCountRate?code=" + code);
             var values = await responseMessage.Content.ReadFromJsonAsync<int>();
             return values;
         }
