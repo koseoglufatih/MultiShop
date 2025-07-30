@@ -38,13 +38,13 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7298
+          "Port": 7276
         }
       ],
 
       "UpstreamPathTemplate": "/services/order/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpStreamScheme": "http"
+      "UpstreamScheme": "http"
     },
     {
       "DownstreamPathTemplate": "/api/{everything}",
@@ -52,7 +52,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7073
+          "Port": 7298
         }
       ],
 
