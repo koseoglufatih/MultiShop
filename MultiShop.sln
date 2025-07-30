@@ -54,6 +54,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirement
 		kullanici.txt = kullanici.txt
 		loginindex.txt = loginindex.txt
 		OcelotCodeExample.txt = OcelotCodeExample.txt
+		orderhtml.txt = orderhtml.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{28732380-539B-4B8B-878C-F21A98A96369}"
